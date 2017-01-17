@@ -9,6 +9,7 @@ import login from './view/other/login';							//--登录
 import reg from './view/other/reg';								//--注册
 import forget from './view/other/forget';						//--忘记密码
 import agreement from './view/other/agreement';					//--协议页面
+import undefinedPage from './view/other/error';					//--404功能
 //user-components
 import userIndex from './view/user/index';						//个人中心首页
 import borrowList from './view/user/borrowList';				//我的借款列表
@@ -180,7 +181,8 @@ var router = new VueRouter({
 				{ path: 'regStep1', component : reportRStep1},			//------注册步骤1
 				{ path: 'regStep2', component : reportRStep2}			//------注册步骤2
 			]}
-		]}
+		]},
+		{ path: '*', component : undefinedPage}						//404功能
 	],
 	scrollBehavior:function(to,from,savedPosition){
 		return { "x":0 , "y": 0 }
