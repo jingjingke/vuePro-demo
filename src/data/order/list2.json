@@ -1,0 +1,31 @@
+{
+    "currentPage":1,
+    "data":[
+        {
+            "applyAmount":1200000,
+            "applyTime":"2016-12-13 10:53:49",
+            "borrowLimit":180,
+            "breachAmount":0,
+            "createTime":"2016-12-13 10:53:49",
+            "id":1419,
+            "operates":"",
+            "orderNo":"20161213000003",
+            "refundAmount":0,
+            "remark":"",
+            "repayType":1,
+            "serviceCost":0,
+            "status":111,
+            "statusStr":"审核中",
+            "useFor":"",
+            "userId":191800180277,
+            "userMobile":"15012345678",
+            "userRealName":"张明月"
+        }
+    ],
+    "hasNext":false,
+    "hasPre":false,
+    "pageSize":20,
+    "success":true,
+    "totalPage":1,
+    "totalSize":1
+}

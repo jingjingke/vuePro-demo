@@ -1,0 +1,19 @@
+﻿/*渐入--渐出*/
+.fade-enter-active, .fade-leave-active {
+  	transition: opacity .3s ease;
+}
+.fade-enter, .fade-leave-active {
+  	opacity: 0;
+}
+
+/*小到大--渐出*/
+.scale-enter-active, .scale-leave-active {
+  	transition: all .1s ease;
+  	transform:scale(1);
+}
+.scale-enter {
+  	transform:scale(0.5);
+}
+.scale-leave-active {
+	opacity: 0;
+}

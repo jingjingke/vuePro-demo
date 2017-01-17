@@ -1,0 +1,41 @@
+{
+    "data":{
+        "userInfo":{
+            "address":"1111",
+            "authMobile":1,
+            "authOcrIdCard":1,
+            "authOcrIdCardTime":"2016-11-07 16:51:35",
+            "authRongMobile":2,
+            "authRongTime":"2016-07-30 10:19:27",
+            "authTaobao":1,
+            "createTime":"2016-03-18 16:58:19",
+            "education":"",
+            "idCardIssuingAuthority":"",
+            "idCardVisa":"",
+            "identityStatus":1,
+            "levelId":1,
+            "levelName":"学徒",
+            "levelScore":50,
+            "levelTitle":"白手起家",
+            "levelValue":1,
+            "liveTime":"2014-01-01",
+            "marriage":1,
+            "orderAmountTotal":0,
+            "orderApply":1,
+            "orderBreachRepay":0,
+            "orderEnd":0,
+            "orderHasRepay":0,
+            "orderLeftTotal":0,
+            "orderNum":1,
+            "orderRepay":0,
+            "personCard":"340711199111112312",
+            "sex":1,
+            "shortUrl":"bcAJkJn",
+            "sort":0,
+            "userId":191800180277,
+            "userMobile":"15012345678",
+            "userRealName":"张明月"
+        }
+    },
+    "success":true
+}

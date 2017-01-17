@@ -1,0 +1,53 @@
+{
+    "currentPage":1,
+    "data":[
+        {
+            "description":"推荐奖励",
+            "faceValue":5,
+            "id":102,
+            "loseTime":"2016-06-20 15:27:27",
+            "sendTime":"2016-03-12 15:27:27",
+            "status":3,
+            "userId":191800180277,
+            "userMobile":"15012345678",
+            "userRealName":"张明月",
+            "valueType":1,
+            "voucherNo":"xx",
+            "voucherType":1
+        },
+        {
+            "description":"推荐奖励",
+            "faceValue":5,
+            "id":104,
+            "loseTime":"2016-06-20 15:32:00",
+            "sendTime":"2016-03-12 15:32:00",
+            "status":3,
+            "userId":191800180277,
+            "userMobile":"15012345678",
+            "userRealName":"张明月",
+            "valueType":1,
+            "voucherNo":"945591616432",
+            "voucherType":1
+        },
+        {
+            "description":"推荐奖励",
+            "faceValue":5,
+            "id":105,
+            "loseTime":"2016-06-20 15:32:14",
+            "sendTime":"2016-03-12 15:32:14",
+            "status":3,
+            "userId":191800180277,
+            "userMobile":"15012345678",
+            "userRealName":"张明月",
+            "valueType":1,
+            "voucherNo":"554969742288",
+            "voucherType":1
+        }
+    ],
+    "hasNext":false,
+    "hasPre":false,
+    "pageSize":20,
+    "success":true,
+    "totalPage":1,
+    "totalSize":3
+}
