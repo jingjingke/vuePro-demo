@@ -18,8 +18,11 @@
 			</listComponent>
 		</ul>
 		<div class="btnWarp">
-			<span class="subBtn" @click="$router.push('/loan/submitApply')">申请借款</span>
+			<span class="subBtn" @click="goApply">申请借款</span>
 		</div>
+		<transition name="scale">
+			<dialogPopup :class='diglogClass' :msg='diglogCont' v-show='diglogShow'></dialogPopup>
+		</transition>
 	</div>
 </template>
 <script>
@@ -38,6 +41,7 @@
 					{cls:'icon-chuxu',		tit:'储蓄卡流水导入',	push:'/credit/waterBank',	isOk:false, param:'userChuxu'},
 					{cls:'icon-other',		tit:'其他资料',			push:'/credit/otherData',	isOk:false, param:'userOhter'}
 				],
+				diglogShow:false	//开关-显示diglog组件
 			}
 		},
 		methods:{
@@ -48,13 +52,22 @@
 		    			arr[i].isOk = false;
 		    		}else	arr[i].isOk = true;
 				}
+			},
+			goApply(){
+				if(this.list01[0].isOk == false)		this.callDialog('请完善个人信息');
+	    		else if(this.list01[1].isOk == false)	this.callDialog('请填写紧急联系人');
+	    		else if(this.list01[2].isOk == false)	this.callDialog('请填写工作信息');
+	    		else if(this.list01[3].isOk == false)	this.callDialog('请进行身份认证');
+	    		else{
+	    			//暂代
+	    			this.$router.push('/loan/submitApply');
+	    		}
 			}
 		},
 		mounted(){
 			//查看本地缓存是否已经添加过数据
 			this.findLocal(this.list01);
 			this.findLocal(this.list02);
-			console.log(JSON.stringify(this.list01));
 		}
 	}
 </script>
