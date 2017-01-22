@@ -15,8 +15,8 @@
 		data(){
 			return {
 				lists:[
-					{tit:'',img:'https://cgtzimage.b0.upaiyun.com/191810/00/00/42/2016/10/27/250A55FF-89BC-AA19-5D4A-89C897F80FAF.png',isOn:false,href:'#'},
-					{tit:'',img:'https://cgtzimage.b0.upaiyun.com/191810/00/00/42/2016/10/21/AB697121-9758-072D-0C6F-28711778485A.jpg',isOn:false,href:'#'}
+					{tit:'',img:'https://cgtzimage.b0.upaiyun.com/191810/00/00/42/2016/10/27/250A55FF-89BC-AA19-5D4A-89C897F80FAF.png',isOn:false,href:'https://cgtzfiles.b0.upaiyun.com/cgjr/jrwx/html/huodong/sjRename.html'},
+					{tit:'',img:'https://cgtzimage.b0.upaiyun.com/191810/00/00/42/2016/10/21/AB697121-9758-072D-0C6F-28711778485A.jpg',isOn:false,href:'https://cgtzfiles.b0.upaiyun.com/cgjr/jrwx/html/huodong/autoPay.html'}
 				],
 				
 				hasTouch:		'ontouchstart' in window,	//接下来三个都是根据手势开始事件是否存在来自定义事件名称
@@ -71,7 +71,8 @@
 						this.goAnimate(parseInt(this.$refs['ul'].style.marginLeft),this.eachLeft[this.index]);	//向左
 					}else{
 						//其它情况--点击url
-						console.log('没有进行移动');
+						console.log('效果测试用的新窗口打开，【实际需要router/本窗口打开其它链接】');
+						window.open(this.lists[this.index].href,'_blank');
 						this.goAnimate(parseInt(this.$refs['ul'].style.marginLeft),this.eachLeft[this.index]);	//归位
 					}
 				}
