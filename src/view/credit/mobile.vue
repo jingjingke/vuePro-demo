@@ -18,7 +18,7 @@
 			<span class="subBtn" @click='goSend'>确认</span>
 		</div>
 		<p class="formTips tCenter"><span class="col6">忘记服务密码，请拨打</span><span class="blue txtline">手机运营商客服电话</span><span class="col6">进行重置</span></p>
-		<alertCheck v-if='alertshwo' :phone='data.phone' @hide="dialogHide" @success='goSubmit'></alertCheck>
+		<alertCheck v-if='alertshow' :phone='data.phone' @hide="alertshow = !alertshow" @success='goSubmit'></alertCheck>
 		<transition name="scale">
 			<dialogPopup :class='diglogClass' :msg='diglogCont' v-show='diglogShow'></dialogPopup>
 		</transition>
@@ -29,7 +29,7 @@
 	    data () {
 	        return {
 	            //数据
-	            alertshwo:false,
+	            alertshow:false,
 	            data:{
 	            	phone:'',
 	            	pass:''
@@ -41,11 +41,11 @@
 	    	goSend(){
 	    		var checkPass = /^[0-9]{6,8}$/;
 	    		if(checkPass.test(this.data.pass) === false) this.callDialog("密码格式不正确")
-	    		else this.alertshwo = true;
+	    		else this.alertshow = true;
 	    	},
 	    	goSubmit(){
 	    		localStorage.setItem("userPhone","true");
-	    		this.alertshwo = !this.alertshwo;
+	    		this.alertshow = !this.alertshow;
 	    		this.callDialog("手机认证成功","true",1500)
 	    		var that = this;
 	    		setTimeout(function(){

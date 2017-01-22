@@ -5,10 +5,10 @@
     		<ul class="forms">
     			<li>
     				<input type="text" placeholder="请输入短信验证码" class="inputType1" v-model.trim='smsCode'>
-    				<div class="checkCode" :class='{grayBg:smsTime}' @click='getSMS'>{{smsBtn}}</div>
+    				<sendSMS @sentAjax='smsAjax' cls='checkCode' timeOut='true'></sendSMS>
     			</li>
     			<li class="liWarp">
-    				<input type="text" placeholder="请输入验证码" class="inputType2">
+    				<input type="text" placeholder="请输入验证码" class="inputType2" v-model.trim='imgCode'>
     				<div class="checkImg"><img src="http://file01.16sucai.com/d/file/2013/0612/20130612092046234.jpg"></div>
     			</li>
     		</ul>
@@ -18,6 +18,9 @@
     		</div>
     	</div>
     	<delayTime v-if='showDelay'></delayTime>
+    	<transition name="scale">
+			<dialogPopup :class='diglogClass' :msg='diglogCont' v-show='diglogShow'></dialogPopup>
+		</transition>
     </div>
 </template>
 <script>
@@ -25,10 +28,10 @@
 		data(){
 			return {
 				smsCode:'',
-				smsBtn:'60秒后重发',
-				smsNum:60,
-				smsTime:true,
-				showDelay:false
+				imgCode:'',
+				showDelay:false,
+				timeout:true,
+				diglogShow:false	//开关--显示dialog组件
 			}
 		},
 	    props:['phone'],
@@ -38,7 +41,8 @@
 	    	},
 	    	goSubmit(){
 	    		var checkCode = /^[0-9]{6,8}$/;
-	    		if(checkCode.test(this.smsCode) == false) this.callDialog(this,"短信验证码错误");
+	    		if(checkCode.test(this.smsCode) == false)		this.callDialog("短信验证码错误");
+	    		else if(checkCode.test(this.imgCode) == false)	this.callDialog("图片验证码错误");
 	    		else{
 	    			this.showDelay = true;
 	    			var that = this;
@@ -47,40 +51,10 @@
 	    			},2000);
 	    		}
 	    	},
-	    	getSMS(){
-	        	if(this.smsTime === false){
-	        		var that = this;
-	        		that.smsTime = true;
-	        		that.smsBtn = that.smsNum + "秒后重发";
-	        		var smstimeout = setInterval(function(){
-	        			that.smsNum--;
-	        			that.smsBtn = that.smsNum + "秒后重发";
-	        			if(that.smsNum == 0){
-	        				clearInterval(smstimeout);
-	        				that.smsBtn = '重新发送';
-	        				that.smsNum = 60;
-	        				that.smsTime = false;
-	        			}
-	        		},1000);
-	        	}
-	        }
-	    },
-	    mounted:function(){
-	    	if(this.smsTime === true){
-        		var that = this;
-        		that.smsTime = true;
-        		that.smsBtn = that.smsNum + "秒后重发";
-        		var smstimeout = setInterval(function(){
-        			that.smsNum--;
-        			that.smsBtn = that.smsNum + "秒后重发";
-        			if(that.smsNum == 0){
-        				clearInterval(smstimeout);
-        				that.smsBtn = '重新发送';
-        				that.smsNum = 60;
-        				that.smsTime = false;
-        			}
-        		},1000);
-        	}
+	    	smsAjax(){
+	    		//在此发送短信验证码ajax
+	    		console.log('在此发送短信ajax--组件中已$emit该函数');
+	    	}
 	    }
 	}
 </script>
