@@ -3,7 +3,7 @@
 		<topComponent title='必填资料'></topComponent>
 		<div class="listTop"><p class="tCenter col9">草根金融承诺你的信息安全</p></div>
 		<ul class="mustInfo">
-            <li v-for="data of lists" :class="{lock:data.isLock, arrow:!data.isLock, wait:!data.isLock, ok:data.isOk }" @click='$router.push(data.push)'>
+            <li v-for="(data,index) of lists" :class="{lock:data.isLock, arrow:!data.isLock, wait:!data.isLock, ok:data.isOk }" @click='pushLink(index)'>
             	<i :class="data.icon"></i><span>{{data.step}}</span><b>{{data.tit}}</b>
             </li>
         </ul>
@@ -29,22 +29,22 @@
 	        	diglogClass:'',
 	        	diglogCont:'',
 	        	lists:[
-	        		{icon:'icon01',isLock:false,isOk:false,step:'第一步',tit:'身份认证',param:'userInfo',push:'/credit/userInfo'},
-	        		{icon:'icon02',isLock:true,isOk:false,step:'第二步',tit:'人脸识别',param:'userScan',push:'/credit/scan'},
-	        		{icon:'icon03',isLock:true,isOk:false,step:'第三步',tit:'紧急联系人',param:'userContacts',push:'/credit/contacts'},
-	        		{icon:'icon04',isLock:true,isOk:false,step:'第四步',tit:'手机认证',param:'userPhone',push:'/credit/mobile'},
-	        		{icon:'icon05',isLock:true,isOk:false,step:'第五步',tit:'工作信息',param:'userWork',push:'/credit/work'}
+	        		{icon:'icon01',isLock:false,isOk:false,step:'第一步',tit:'身份认证',param:'userInfo',push:'/credit/userInfo',err:'请进行身份认证'},
+	        		{icon:'icon02',isLock:true,isOk:false,step:'第二步',tit:'人脸识别',param:'userScan',push:'/credit/scan',err:'请进行人脸识别'},
+	        		{icon:'icon03',isLock:true,isOk:false,step:'第三步',tit:'紧急联系人',param:'userContacts',push:'/credit/contacts',err:'请填写紧急联系人'},
+	        		{icon:'icon04',isLock:true,isOk:false,step:'第四步',tit:'手机认证',param:'userPhone',push:'/credit/mobile',err:'请进行手机认证'},
+	        		{icon:'icon05',isLock:true,isOk:false,step:'第五步',tit:'工作信息',param:'userWork',push:'/credit/work',err:'请填写工作信息'}
 	        	]
 	        }
 	    },
 	    methods:{
 	    	goApply(){
 	    		if(this.checked == false)				this.callDialog('请阅读并同意协议');
-	    		else if(this.lists[0].isOk == false)	this.callDialog('请进行身份认证');
-	    		else if(this.lists[1].isOk == false)	this.callDialog('请进行人脸识别');
-	    		else if(this.lists[2].isOk == false)	this.callDialog('请填写紧急联系人');
-	    		else if(this.lists[3].isOk == false)	this.callDialog('请进行手机认证');
-	    		else if(this.lists[4].isOk == false)	this.callDialog('请填写工作信息');
+	    		else if(this.lists[0].isOk == false)	this.callDialog(this.lists[0].err);
+	    		else if(this.lists[1].isOk == false)	this.callDialog(this.lists[1].err);
+	    		else if(this.lists[2].isOk == false)	this.callDialog(this.lists[2].err);
+	    		else if(this.lists[3].isOk == false)	this.callDialog(this.lists[3].err);
+	    		else if(this.lists[4].isOk == false)	this.callDialog(this.lists[4].err);
 	    		else{
 	    			//暂代
 	    			this.$router.push('/loan/submitApply');
@@ -60,6 +60,21 @@
 						this.lists[i].isOk = true;
 					}
 				}
+	        },
+	        pushLink(index){
+	        	let flag = false;
+	        	if(this.lists[index].isLock == true){
+					for(let i=0;i < index; i++){
+						if(this.lists[i].isOk == false){
+							this.callDialog(this.lists[i].err);
+							flag = true;
+							break;
+						}
+					}
+					if(flag == false) this.$router.push(this.lists[index].push);
+	        	}else{
+	        		this.$router.push(this.lists[index].push);
+	        	}
 	        }
 	    },
 	    computed:{
