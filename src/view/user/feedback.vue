@@ -29,10 +29,9 @@
 	        		this.callDialog('字数不能小于5','sort',1200)
 	        	}else{
 	        		this.callDialog('提交成功','true',1500)
-	        		var that = this;
 	        		//正常是ajax提交内容--...此处省略
-	        		setTimeout(function(){
-	        			that.$router.push('/user');
+	        		setTimeout(()=>{
+	        			this.$router.push('/user');
 	        		},1800);
 	        	}
 	        }

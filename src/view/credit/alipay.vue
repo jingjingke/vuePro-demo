@@ -45,9 +45,8 @@
 	    		else{
 	    			localStorage.setItem('userAlipay','Yes');
 	        		this.callDialog("需对接支付宝接口","true",1500);
-	        		var that= this;
-	        		setTimeout(function(){
-	        			that.$router.back();
+	        		setTimeout(()=>{
+	        			this.$router.back();
 	        		},2000);
 	    		}
 	    	}

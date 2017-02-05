@@ -116,9 +116,8 @@
 	        	else{
 	        		localStorage.setItem('userContacts',JSON.stringify(this.data));
 	        		this.callDialog("保存成功","true",2000);
-	        		var that= this;
-	        		setTimeout(function(){
-	        			that.$router.back();
+	        		setTimeout(()=>{
+	        			this.$router.back();
 	        		},2000);
 	        	}
 	        }

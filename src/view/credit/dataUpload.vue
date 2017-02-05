@@ -42,9 +42,8 @@
 	        	else{
 	        		localStorage.setItem(this.$route.params.param,JSON.stringify(this.fileData));
 	        		this.callDialog("保存成功","true",1200);
-	        		var that= this;
-	        		setTimeout(function(){
-	        			that.$router.back();
+	        		setTimeout(()=>{
+	        			this.$router.back();
 	        		},2000);
 	        	}
 	        },

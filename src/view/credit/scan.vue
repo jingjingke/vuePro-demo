@@ -22,9 +22,8 @@
 				//需要对接第三方接口，模拟完成吧
 				localStorage.setItem('userScan','Yes');
         		this.callDialog("识别完成","true",2000);
-        		var that= this;
-        		setTimeout(function(){
-        			that.$router.back();
+        		setTimeout(()=>{
+        			this.$router.back();
         		},2000);
 			}
 		}

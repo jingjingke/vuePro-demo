@@ -101,9 +101,8 @@
 	        	if(this.checked === false) this.callDialog('请阅读并同意协议','sort',1200)
 	        	else{
 	        		this.callDialog('确认成功','true',2000)
-	        		var that= this;
-	        		setTimeout(function(){
-	        			that.$router.push('/'); //暂时跳到到根
+	        		setTimeout(()=>{
+	        			this.$router.push('/'); //暂时跳到到根
 	        		},2000);
 	        	}
 	        }

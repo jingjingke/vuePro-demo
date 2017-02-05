@@ -47,9 +47,8 @@
 	    		localStorage.setItem("userPhone","true");
 	    		this.alertshow = !this.alertshow;
 	    		this.callDialog("手机认证成功","true",1500)
-	    		var that = this;
-	    		setTimeout(function(){
-	    			that.$router.back();
+	    		setTimeout(()=>{
+	    			this.$router.back();
 	    		},1500);
 	    		
 	    	}

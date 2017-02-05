@@ -45,9 +45,8 @@
 	    		else if(checkCode.test(this.imgCode) == false)	this.callDialog("图片验证码错误");
 	    		else{
 	    			this.showDelay = true;
-	    			var that = this;
-	    			setTimeout(function(){
-	    				that.$emit('success');
+	    			setTimeout(()=>{
+	    				this.$emit('success');
 	    			},2000);
 	    		}
 	    	},

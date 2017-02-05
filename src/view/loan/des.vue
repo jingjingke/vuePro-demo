@@ -53,10 +53,9 @@
 	    		else if(this.datas[2].num > 95)		this.callDialog('用途不能小于5个字');
 	    		else{
 	    			this.callDialog('保存成功','true',1500);
-	        		var that = this;
 	        		localStorage.setItem('tempDesCont',JSON.stringify(this.datas));
 	        		//正常是ajax提交内容--...此处省略
-	        		setTimeout(function(){ that.$router.back(); },1800);
+	        		setTimeout(()=>{ this.$router.back(); },1800);
 	    		}
 	    	}
 	    },

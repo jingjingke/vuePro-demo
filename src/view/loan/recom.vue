@@ -31,9 +31,8 @@
 	        	}else{
 	        		//暂时跳到一页
 	        		this.callDialog('提交成功','true');
-	        		var that = this;
-	        		setTimeout(function(){
-	        			that.$router.back();
+	        		setTimeout(()=>{
+	        			this.$router.back();
 	        		},2000);
 	        	}
 	        }
