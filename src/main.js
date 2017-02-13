@@ -9,8 +9,8 @@ import home from './components/home';
 import routes from './router';
 //定义路由配置
 var router = new VueRouter({
-	mode: 'history',
-	base: __dirname,
+	hashbang: false,
+	history:true,
 	routes:routes,
 	scrollBehavior:function(to,from,savedPosition){
 		return { "x":0 , "y": 0 }
