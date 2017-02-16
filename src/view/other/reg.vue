@@ -14,7 +14,7 @@
 					<span>图片验证码</span>
 					<input type="text" placeholder="请输入图形验证码" v-model.trim='imgCode'>
 				</label>
-				<div class="code-img"><img src="https://cgtzfiles.b0.upaiyun.com/style3/bbs/cgtz/images/adv_2.jpg"></div>
+				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
 			</li>
 			<li>
 				<label>
@@ -66,18 +66,18 @@
 				showPwdOne:true,	//开关--明文显示第一个密码
 				showPwdTwo:true,	//开关--明文显示第二个密码
 	        	diglogShow:false,	//开关--显示diglog组件
+	        	canvas:{}			//存放canvas DOM节点
 	        }
 	    },
 	    methods :{
 	    	goReg(){
 	    		var checkPhone = /^[1][3578][0-9]{9}$/,
 	        		checkPwdOne = /^[\d\D]{6,12}$/,
-	        		checkImg = /^[A-Za-z0-9]{4,6}$/,
 	        		checkSMS = /^[0-9]{4,8}$/;
 	        	//先做一些简单的判断再提交ajax
 	        	if(this.checked === false)							this.callDialog('请阅读并同意协议');
 	        	else if( checkPhone.test(this.phone) == false )		this.callDialog('手机格式不正确');
-	        	else if( checkImg.test(this.imgCode) == false )		this.callDialog('图片验证码不正确');
+	        	else if(this.imgCode.toUpperCase() !== this.canvasCode.codeNums.toUpperCase())		this.callDialog('图片验证码不正确');
 	        	else if( checkSMS.test(this.smsCode) == false )		this.callDialog('短信验证码不正确');
 	        	else if( checkPwdOne.test(this.pwdOne) == false )	this.callDialog('密码格式不正确');
 	        	else if( this.pwdTwo != this.pwdOne )				this.callDialog('确认密码不正确');
@@ -88,7 +88,15 @@
 	    	},
 	    	smsAjax(){
 	    		console.log('在此发送短信ajax--组件中已$emit该函数');
-	    	}
+	    	},
+	    	changeCode(){
+	        	//点击刷新二维码
+	        	this.canvasCode.createCode(this.canvas);
+	        }
+	    },
+	    mounted:function(){
+	    	this.canvas = document.getElementById('canvas');
+	    	this.changeCode();
 	    }
 	}
 </script>

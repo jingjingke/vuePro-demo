@@ -41,7 +41,7 @@
 					<span>验证码</span>
 					<input type="text" placeholder="请输入右侧验证码">
 				</label>
-				<div class="code-img"><img src="https://cgtzfiles.b0.upaiyun.com/style3/bbs/cgtz/images/adv_2.jpg"></div>
+				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
 			</li>
 		</ul>
 		<div class="btnWarp">
@@ -57,16 +57,21 @@
 	export default {
 	    data () {
 	        return {
-	            bank:''
+	            bank:'',
+	            canvas:{}	//存放canvas DOM节点
 	        }
 	    },
 	    methods :{
-	    	
+	    	changeCode(){
+	        	//点击刷新二维码
+	        	this.canvasCode.createCode(this.canvas);
+	        }
 	    },
 	    mounted:function(){
 	    	//页面加载时
 	    	this.bank = bankDatas[this.$route.params.index].name;
-	    	
+	    	this.canvas = document.getElementById('canvas');
+	    	this.changeCode();
 	    }
 	}
 </script>

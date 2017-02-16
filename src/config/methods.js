@@ -2,6 +2,8 @@ import Vue from 'vue';
 
 //引入弹出文字说明框的具体数据
 import knowDatas from './../data/alertKnow.json';
+//引入canvas验证码用于全局
+import canvasCode from './../assets/lib/canvasCode';
 
 var methods={
 	jsonSort:function(data,key){	//数组对象data按照key值进行排序
@@ -61,7 +63,8 @@ var methods={
 		phone:/^[1][3578][0-9]{9}$/,
 		pwd:/^[\d\D]{6,12}$/,
 		imgcode:/^[A-Za-z0-9]{4,6}$/
-	}
+	},
+	canvasCode:canvasCode
 }
 
 export default methods;

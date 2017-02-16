@@ -25,7 +25,7 @@
 					<span>验证码</span>
 					<input type="text" placeholder="请输入图形验证码" v-model.trim='code'>
 				</label>
-				<div class="code-img"><img src="https://cgtzfiles.b0.upaiyun.com/style3/bbs/cgtz/images/adv_2.jpg"></div>
+				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
 			</li>
 		</ul>
 		<div class="btnWarp">
@@ -48,18 +48,18 @@
 	        	pwd:'',
 	        	code:'',			
 	        	showPwd:true,		//开关--密码可见
-	        	diglogShow:false,	//开关--显示diglog组件
+	        	diglogShow:false,	//开关--显示diglog组件,
+	        	canvas:{}			//存放canvas DOM节点
 	        }
 	    },
 	    methods :{
 	        logIn () {
 	        	var checkName = /^[1][3578][0-9]{9}$/,
-	        		checkPwd = /^[\d\D]{6,12}$/,
-	        		checkCode = /^[A-Za-z0-9]{4,6}$/;
+	        		checkPwd = /^[\d\D]{6,12}$/;
 	        	//先做一些简单的判断再提交ajax
 	        	if( checkName.test(this.name) == false )		this.callDialog('帐号不正确');
 	        	else if( checkPwd.test(this.pwd) == false )		this.callDialog('密码不正确');
-	        	else if( checkCode.test(this.code) == false )	this.callDialog('验证码不正确');
+	        	else if( this.code.toUpperCase() !== this.canvasCode.codeNums.toUpperCase() )	this.callDialog('验证码不正确');
 	        	else{
 	        		//先跳到借款首页暂代，后期ajax
 	        		this.$router.push('/loan'); 
@@ -69,7 +69,15 @@
 	        	//根据情景不一样，跳转的页面也会不同，暂定跳到我的贷款首页
 	        	//...省略
 	            this.$router.push('/loan');
+	        },
+	        changeCode(){
+	        	//点击刷新二维码
+	        	this.canvasCode.createCode(this.canvas);
 	        }
+	    },
+	    mounted:function(){
+	    	this.canvas = document.getElementById('canvas');
+	    	this.changeCode();
 	    }
 	}
 </script>

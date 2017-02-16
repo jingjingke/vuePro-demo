@@ -23,7 +23,7 @@
 				<label>
 					<input type="text" placeholder="请输入验证码" v-model.trim='code'>
 				</label>
-				<div class="code-img"><img src="https://cgtzfiles.b0.upaiyun.com/style3/bbs/cgtz/images/adv_2.jpg"></div>
+				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
 			</li>
 		</ul>
 		<div class="btnWarp">
@@ -37,14 +37,23 @@
 	        return {
 	            name:'',
 	            sid:'',
-	            code:''
+	            code:'',
+	            canvas:{}			//存放canvas DOM节点
 	        }
 	    },
 	    methods :{
 	    	goNext(){
 	    		console.log('未发开，直接跳路由');
 	    		this.$router.push('regStep2');
-	    	}
+	    	},
+	    	changeCode(){
+	        	//点击刷新二维码
+	        	this.canvasCode.createCode(this.canvas);
+	        }
+	    },
+	    mounted:function(){
+	    	this.canvas = document.getElementById('canvas');
+	    	this.changeCode();
 	    }
 	}
 </script>
