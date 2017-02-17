@@ -1,18 +1,77 @@
 # vuePro-demo
-练习项目基本是用vue来实现的，满多地方可以填坑的。欢迎交流学习，使用的页面完全来自“草根金融”APP，所以请勿用于商业或公司项目。
 
-#使用
-克隆完项目之后，你可以在项目根目录使用代码安装node_modules文件夹：
+练习项目基本是用vue2和vue-router2来实现的，满多地方可以填坑的。欢迎交流学习，使用的页面完全来自“草根金融”APP，所以请勿用于商业或公司项目。
+
+线上访问地址：[https://jingjingke.github.io/vuePro-demo/dist/](https://jingjingke.github.io/vuePro-demo/dist/)
+
+
+
+##使用
+
+（1）克隆项目
+```bash
+		git clone https://github.com/jingjingke/vuePro-demo.git
+```
+（2）安装node_modules文件夹：
 ```bash
 		npm install
 ```
-或去我的百度网盘获取rar压缩包[点击这个地址](http://pan.baidu.com/s/1mhQZenY)
+> 或去我的百度网盘获取rar压缩包[点击这个地址](http://pan.baidu.com/s/1mhQZenY)
 
-安装完成之后，输入命令行
+（3）开发，输入命令行
 ```bash
 		npm run dev
 ```
-进行开发
 
-#工具与知识
-开发中使用了vue-cli(webpack包)、vue以及vue-router，而项目中使用到了自制仿swiper的banner组件、城市首字母划分、canvas仿芝麻分、发送短信倒计时组件等等功能。
+（4）发布，可输入命令行
+```bash
+		npm run build
+```
+> 注意：【生产环境】在根目录config/index.js文件中build对象'assetsPublicPath'属性
+> 我填写的是我当前的线上资源需放置的地址：'https://jingjingke.github.io/vuePro-demo/dist/'。
+> （根据你的资源位置填写相应的值，默认值可能会出现生产环境资源404-url不正确的情况）
+
+
+
+##前置知识
+开发中使用了vue-cli(webpack包)、vue2、vue-router2、以及部分ES6语法(箭头语法)。建议阅读：
+
+vue2中文指南：[http://cn.vuejs.org/v2/guide/](http://cn.vuejs.org/v2/guide/)
+
+vue-router2：[http://router.vuejs.org/zh-cn/index.html](http://router.vuejs.org/zh-cn/index.html)
+
+另外可查看vue2中文指南上面的例子汇总(只整理了部分，方便我自己使用而做的)，[点击查看](http://www.jingjingke.com/c/14248.html)。
+
+
+
+##目录结构
+
+```pre
+
+├── build                    // webpack打包配置（不说明它下面的文件）
+├── config                   // webpack环境配置（不说明它下面的文件）
+├── dist                     // 运行build后生成目录(存放需要的发布代码)
+├── src                      // 生产目录(着重说明)
+│   ├── assets               // 静态资源(css,font,img,js)
+│   ├── components           // vue组件
+│   ├── config               // Vue全局方法/过滤器
+│   ├── data                 // 数据文件(json)
+│   ├── views                // 业务页面
+│   ├── main.js              // 项目入口文件
+│   └── router.js            // 路由配置
+├── .babelrc                 // babel工具配置
+├── .editorconfig            // 编码风格配置(不太影响开发)
+├── .gitignore               // git项目忽略上传的文件/文件夹配置
+├── .project                 // 我编辑器生成的，对项目无用
+├── README.md                // 说明文档
+├── _config.yml              // git pages选择风格生成的
+├── package.json             // 项目配置信息
+
+```
+
+##项目截图
+
+![项目首页截图1](http://www.jingjingke.com/uploads/allimg/170213/192541.png)
+![项目首页截图2](http://www.jingjingke.com/uploads/allimg/170213/192542.png)
+![项目首页截图3](http://www.jingjingke.com/uploads/allimg/170213/192543.png)
+![项目首页截图4](http://www.jingjingke.com/uploads/allimg/170213/192544.png)
