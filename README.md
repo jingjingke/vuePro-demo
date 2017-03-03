@@ -17,6 +17,8 @@
 		npm install
 ```
 > 或去我的百度网盘获取rar压缩包[点击这个地址](http://pan.baidu.com/s/1mhQZenY)
+>
+>【2017.03.03】这个rar压缩包已经不是最新了，如果继续使用的话，还需要执行一次npm install
 
 （3）开发，输入命令行
 ```bash
@@ -34,14 +36,15 @@
 
 
 ##前置知识
-开发中使用了vue-cli(webpack包)、vue2、vue-router2、以及部分ES6语法(箭头语法)。建议阅读：
+开发中使用了vue-cli(webpack包)、vue2、vue-router2、vuex2以及部分ES6语法(箭头语法)。建议阅读：
 
 vue2中文指南：[http://cn.vuejs.org/v2/guide/](http://cn.vuejs.org/v2/guide/)
 
 vue-router2：[http://router.vuejs.org/zh-cn/index.html](http://router.vuejs.org/zh-cn/index.html)
 
-另外可查看vue2中文指南上面的例子汇总(只整理了部分，方便我自己使用而做的)，[点击查看](http://www.jingjingke.com/c/14248.html)。
+vuex指南开始：[http://vuex.vuejs.org/zh-cn/intro.html](http://vuex.vuejs.org/zh-cn/intro.html)
 
+另外可查看vue2中文指南上面的例子汇总(只整理了部分，方便我自己使用而做的)，[点击查看](http://www.jingjingke.com/c/14248.html)。
 
 
 ##目录结构

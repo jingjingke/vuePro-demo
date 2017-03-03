@@ -25,6 +25,10 @@
 │   ├── repay                // 后期需ajax-repay接口
 │   ├── user                 // 后期需ajax-user接口
 │   └── *.json               // 页面中引用的静态json
+├── store                    // vuex-文件夹
+│   ├── index.js             // 引入vuex相关文件
+│   ├── mutations.js         // vuex-mutations
+│   └── state.js             // vuex-state
 ├── views                    // 业务页面
 │   ├── credit               // 业务-信用模块
 │   ├── loan                 // 业务-借款模块
