@@ -52,8 +52,8 @@
 	    		else if(this.datas[1].num > 95)		this.callDialog('能力不能小于5个字');
 	    		else if(this.datas[2].num > 95)		this.callDialog('用途不能小于5个字');
 	    		else{
+	    			this.$store.commit('uploadApplys',{name:'tempDesCont',val:JSON.stringify(this.datas)});
 	    			this.callDialog('保存成功','true',1500);
-	        		localStorage.setItem('tempDesCont',JSON.stringify(this.datas));
 	        		//正常是ajax提交内容--...此处省略
 	        		setTimeout(()=>{ this.$router.back(); },1800);
 	    		}
@@ -83,8 +83,9 @@
 	    },
 	    mounted:function(){
 	    	//打开页面的时候查看缓存中是否有值[细处的逻辑待填加]
-	    	if(localStorage['tempDesCont'] !== undefined){
-	    		this.datas = JSON.parse(localStorage.getItem('tempDesCont'));
+	    	var tempDesCont = this.$store.state['tempDesCont'];
+	    	if(tempDesCont !== ''){
+	    		this.datas = JSON.parse(tempDesCont);
 	    	}
 	    }
 	}

@@ -52,7 +52,7 @@
 	    	},
 	        showClass(arr){
 	        	for(var i = 0; i < this.lists.length; i++){
-					if(localStorage[this.lists[i].param] === undefined || localStorage[this.lists[i].param] === null){
+					if(this.$store.state.creditStatus[this.lists[i].param] === false){
 						this.lists[i].isLock = false;
 						break;
 					}else{
@@ -82,7 +82,8 @@
 	    	watchLocal:function(){
 	    		var obj={};
 	    		for(var i = 0; i < this.lists.length; i++){
-	    			obj[i] = (localStorage[this.lists[i].param] === undefined || localStorage[this.lists[i].param] === null)?false:true;
+	    			console.log(this.$store.state.creditStatus[this.lists[i].param])
+	    			obj[i] = this.$store.state.creditStatus[this.lists[i].param];
 	    		}
 	    		return obj;
 	    	}

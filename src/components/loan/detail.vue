@@ -45,7 +45,7 @@
 	        	this.showTips = !this.showTips;
 	        	if( this.hasHot == true ){
 	        		this.hasHot = !this.hasHot;
-	        		localStorage.setItem(this.uid+"Icon","yes");
+	        		this.$store.commit('changeLoanIconStatu',{name:this.uid,val:true});
 	        	}
 	        }
 	    },
@@ -54,7 +54,8 @@
 	    	//根据传入的uid来，拉取该页面数据
 	    	this.data =detailData[this.uid];
 	    	//打开页面时需要判断是否点过这个页面，显示下面的红色小圆点
- 	    	if(localStorage.getItem(this.uid+"Icon") == "yes") this.hasHot = false;
+	    	var thisIcon = this.$store.state.loanIcons[this.uid];
+	    	if(thisIcon) this.hasHot = false;
 	    }
 	}
 </script>

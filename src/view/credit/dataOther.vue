@@ -29,16 +29,19 @@
 	    mounted:function(){
 	    	//页面加载时
 	    	for(var i=0; i < this.datas.length; i++){
-	    		if(localStorage[this.datas[i].param] === undefined || localStorage[this.datas[i].param] === null){
-	    			this.datas[i].value = "未提供";
-	    		}else	this.datas[i].value = "已提供";
+	    		if(this.$store.state.ohterPicStatus[this.datas[i].param] === true){
+	    			this.datas[i].value = "已提供";
+	    		}
 	    	}
-	    	
+//	    	console.log(this.$store.state.ohterPicDatas['otherFile'])
 	    },
 	    beforeDestroy:function(){
 	    	//如果都是已提供资料的话则“其它资料”记录标识
-	    	if(/未提供/.test(JSON.stringify(this.datas)) === false ) 	localStorage.setItem('userOhter','Yes');
-	    	else														localStorage.removeItem('userOhter')
+	    	if(/未提供/.test(JSON.stringify(this.datas)) === false ){
+	    		this.$store.commit('uploadCreditStatu',{name:'userOhter',val:true});
+	    	}else{
+	    		this.$store.commit('uploadCreditStatu',{name:'userOhter',val:false});
+	    	}
 	    }
 	}
 </script>

@@ -30,6 +30,7 @@
             	inputfile:'',
             	sid:'',
             	fileData:[],
+            	tempData:[],
             	showInput:true,
             	hasChange:false,
             	diglogShow:false,	//开关-显示diglog组件
@@ -38,14 +39,21 @@
 	    methods :{
 	        saveData () {
 	        	//保存信息，可以在此判断
-	        	if(this.hasChange === false) this.$router.back();
-	        	else{
-	        		localStorage.setItem(this.$route.params.param,JSON.stringify(this.fileData));
-	        		this.callDialog("保存成功","true",1200);
-	        		setTimeout(()=>{
-	        			this.$router.back();
-	        		},2000);
-	        	}
+        		if(this.fileData.length === 0){
+		    		this.$store.commit('uploadOhterPicData',{name:this.sid,val:''});
+		    		this.$store.commit('changeOhterPicStatu',{name:this.sid,val:false});
+		    	}else{
+		    		this.$store.commit('uploadOhterPicData',{name:this.sid,val:JSON.stringify(this.fileData)});
+		    		if(this.fileData.length == helpDatas[this.sid].num){
+		    			this.$store.commit('changeOhterPicStatu',{name:this.sid,val:true})
+		    		}else{
+		    			this.$store.commit('changeOhterPicStatu',{name:this.sid,val:false})
+		    		}
+		    	}
+        		this.callDialog("保存成功","true",1200);
+        		setTimeout(()=>{
+        			this.$router.back();
+        		},2000);
 	        },
 	        myChange(e){
 	        	var that = this;
@@ -97,12 +105,10 @@
 	    	//拉取数据
 	    	this.data = helpDatas[this.sid];
 	    	//查看缓存中是否有数据
-	    	if(localStorage[this.sid] !== undefined ){
-	    		this.fileData = JSON.parse(localStorage.getItem(this.sid));
+	    	var picDatas = this.$store.state.ohterPicDatas[this.sid];
+	    	if( picDatas !== undefined && picDatas !== ''){
+	    		this.fileData = JSON.parse(picDatas);
 	    	}
-	    },
-	    beforeDestroy:function(){
-	    	if(this.fileData.length == 0 ) localStorage.removeItem(this.sid);
 	    }
 	}
 </script>

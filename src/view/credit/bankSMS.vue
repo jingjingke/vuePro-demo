@@ -35,7 +35,7 @@
 	    		var checkCode = /^[0-9]{6,8}$/;
 	    		if(checkCode.test(this.smsCode) == false) this.callDialog("验证码不正确");
 	    		else{
-	    			localStorage.setItem('userBank','Yes');
+	    			this.$store.commit('uploadCreditData',{name:'userBank',val:true});
 	        		this.callDialog("保存成功","true",2000);
 	        		setTimeout(()=>{
 	        			this.$router.back();
@@ -54,23 +54,7 @@
 	    },
 	    mounted:function(){
 	    	//页面加载时
-	    	this.data = JSON.parse(localStorage.getItem('userBankData'));
-	    	//立即倒计时
-//	    	if(this.smsTime === true){
-//      		var that = this;
-//      		that.smsTime = true;
-//      		that.smsBtn = that.smsNum + "秒后可重发";
-//      		var smstimeout = setInterval(function(){
-//      			that.smsNum--;
-//      			that.smsBtn = that.smsNum + "秒后可重发";
-//      			if(that.smsNum == 0){
-//      				clearInterval(smstimeout);
-//      				that.smsBtn = '重新发送验证码';
-//      				that.smsNum = 60;
-//      				that.smsTime = false;
-//      			}
-//      		},1000);
-//      	}
+	    	this.data = JSON.parse(this.$store.state.creditDatas['userBankTemp']);
 	    }
 	}
 </script>

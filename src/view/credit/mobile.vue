@@ -44,7 +44,7 @@
 	    		else this.alertshow = true;
 	    	},
 	    	goSubmit(){
-	    		localStorage.setItem("userPhone","true");
+	    		this.$store.commit('uploadCreditStatu',{name:'userPhone',val:true});
 	    		this.alertshow = !this.alertshow;
 	    		this.callDialog("手机认证成功","true",1500)
 	    		setTimeout(()=>{

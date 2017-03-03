@@ -85,7 +85,7 @@
 	    	var pId = this.$route.params.id;
 	    	//数据提取
 	    	this.data = myData.data;
-	    	localStorage.setItem('borrowDetail'+pId,JSON.stringify(this.data));
+	    	this.$store.commit('addBorrow',{id:pId,val:JSON.stringify(this.data)});
 	    }
 	}
 </script>

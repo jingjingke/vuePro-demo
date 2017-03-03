@@ -104,7 +104,8 @@
 	        	else if(this.regDef.test(this.data.city))				this.callDialog("请选择开户市");
 	        	else if(this.regDef.test(this.data.bankSub))			this.callDialog("请选择开户行");
 	        	else{
-	        		localStorage.setItem('userBankData',JSON.stringify(this.data));
+	        		this.$store.commit('uploadCreditStatu',{name:'userBank',val:true});
+	        		this.$store.commit('uploadCreditData',{name:'userBankTemp',val:JSON.stringify(this.data)});
 	        		this.$router.push('/credit/bankSMS');
 	        	}
 	        },
@@ -119,7 +120,7 @@
 	    	this.name = "测试数据";
 	    	this.id = '320721199010022431';
 	    	//模拟已经绑卡成功
-	    	if(localStorage['userBank'] !== undefined ) this.hasCard = true;
+	    	if(this.$store.state.creditStatus['userBank'] === true) this.hasCard = true;
 	    }
 	}
 </script>

@@ -73,7 +73,8 @@
 	        	if(this.data.name==='' || this.data.id==='')			this.callDialog("请重拍身份证正面");
 	        	else if(this.data.issued==='' || this.data.valid==='')	this.callDialog("请重拍身份证背面");
 				else{
-					localStorage.setItem('userIdpic',JSON.stringify(this.data));
+					this.$store.commit('uploadCreditStatu',{name:'userIdpic',val:true});
+	        		this.$store.commit('uploadCreditData',{name:'userIdpic',val:JSON.stringify(this.data)});
 	        		this.callDialog("保存成功","true",2000);
 	        		setTimeout(()=>{
 	        			this.$router.back();
@@ -95,8 +96,13 @@
 	    },
 	    mounted:function(){
 	    	//页面加载时
-	    	if(localStorage['userIdpic'] !== undefined ){
-				this.data = JSON.parse(localStorage.getItem('userIdpic'));
+	    	if(this.$store.state.creditStatus['userIdpic'] === true){
+	    		if(this.$store.state.creditDatas['userIdpic'] !== undefined){
+	    			this.data = JSON.parse(this.$store.state.creditDatas['userIdpic'])
+	    		}else{
+	    			//如果vuex中未存储数据则发送ajax
+	    			console.log('发送ajax')
+	    		}
 	    	}
 	    }
 	}

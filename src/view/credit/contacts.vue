@@ -114,7 +114,8 @@
 	        	else if(this.data.selectBind3 == this.defBind)			this.callDialog("联系人三 　请选择关系",'text',1600);
 	        	else if(checkPhone.test(this.data.conPhone3) == false)	this.callDialog("联系人三 　手机号格式不正确",'text',1600);
 	        	else{
-	        		localStorage.setItem('userContacts',JSON.stringify(this.data));
+	        		this.$store.commit('uploadCreditStatu',{name:'userContacts',val:true});
+	        		this.$store.commit('uploadCreditData',{name:'userContacts',val:JSON.stringify(this.data)});
 	        		this.callDialog("保存成功","true",2000);
 	        		setTimeout(()=>{
 	        			this.$router.back();
@@ -124,8 +125,13 @@
 	    },
 	    mounted:function(){
 	    	//页面加载时
-	    	if(localStorage['userContacts'] !== undefined ){
-	    		this.data = JSON.parse(localStorage.getItem('userContacts'));
+	    	if(this.$store.state.creditStatus['userContacts'] === true){
+	    		if(this.$store.state.creditDatas['userContacts'] !== undefined){
+	    			this.data = JSON.parse(this.$store.state.creditDatas['userContacts'])
+	    		}else{
+	    			//如果vuex中未存储数据则发送ajax
+	    			console.log('发送ajax')
+	    		}
 	    	}
 	    }
 	}

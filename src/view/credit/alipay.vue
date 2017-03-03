@@ -43,7 +43,6 @@
 	    		if(this.name.length<=6 || checkIllegal.test(this.name) === true) 			this.callDialog("用户名不合法");
 	    		else if(this.pass.length<=6 || checkIllegal.test(this.pass) === true)		this.callDialog("密码不合法");
 	    		else{
-	    			localStorage.setItem('userAlipay','Yes');
 	        		this.callDialog("需对接支付宝接口","true",1500);
 	        		setTimeout(()=>{
 	        			this.$router.back();

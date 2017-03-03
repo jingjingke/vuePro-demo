@@ -116,7 +116,8 @@
 	        	else if(this.data.selectDist == this.defVal)	this.callDialog("请选择所在区");
 	        	else if(checkCHA.test(this.data.address) == false)	this.callDialog("详情地址格式不正确");
 	        	else{
-	        		localStorage.setItem('userWork',JSON.stringify(this.data));
+	        		this.$store.commit('uploadCreditStatu',{name:'userWork',val:true});
+	        		this.$store.commit('uploadCreditData',{name:'userWork',val:JSON.stringify(this.data)});
 	        		this.callDialog("保存成功","true",2000);
 	        		setTimeout(()=>{
 	        			this.$router.back();
@@ -168,10 +169,15 @@
 	    },
 	    mounted:function(){
 	    	//页面加载时
-	    	if(localStorage['userWork'] !== undefined ){
-	    		this.tempData = JSON.parse(localStorage.getItem('userWork')); //用于检查watch数据时值的变化，缓存数据替换时不会被清空
-				this.data = JSON.parse(localStorage.getItem('userWork'));
+	    	if(this.$store.state.creditStatus['userWork'] === true){
+	    		if(this.$store.state.creditDatas['userWork'] !== undefined){
+	    			this.data = JSON.parse(this.$store.state.creditDatas['userWork'])
+	    		}else{
+	    			//如果vuex中未存储数据则发送ajax
+	    			console.log('发送ajax')
+	    		}
 	    	}
+	    	
 			this.optionProy = cityData["86"];
 	    }
 	}

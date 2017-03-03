@@ -55,7 +55,9 @@
 	    	//需要根据订单id来查询该页面详情[通过参数已传递过来]
 	    	var pId = this.$route.params.id; 
 	    	//数据提取[从缓存中]
-	    	this.data = JSON.parse(localStorage.getItem('borrowDetail'+pId));
+	    	this.data = JSON.parse(this.$store.state.borrowDetail[pId]);
+	    	
+	    	
 	    }
 	}
 </script>

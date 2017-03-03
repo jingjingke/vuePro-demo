@@ -141,7 +141,8 @@
 	        	else if( checkAdd.test(this.data.addDetail) == false) 						this.callDialog("详细地址格式错误");
 	        	else if(this.data.checkTime === '') 										this.callDialog("请选择入住时间");
 	        	else{
-	        		localStorage.setItem('userInfo',JSON.stringify(this.data));
+	        		this.$store.commit('uploadCreditStatu',{name:'userInfo',val:true});
+	        		this.$store.commit('uploadCreditData',{name:'userInfo',val:JSON.stringify(this.data)});
 	        		this.callDialog("保存成功","true",2000);
 	        		setTimeout(()=>{
 	        			this.$router.back();
@@ -193,11 +194,16 @@
 	    },
 	    mounted:function(){
 	    	//页面加载时
-	    	if(localStorage['userInfo'] !== undefined ){
-	    		this.tempData = JSON.parse(localStorage.getItem('userInfo')); //用于检查watch数据时值的变化，缓存数据替换时不会被清空
-				this.data = JSON.parse(localStorage.getItem('userInfo'));
+	    	if(this.$store.state.creditStatus['userInfo'] === true){
+	    		if(this.$store.state.creditDatas['userInfo'] !== undefined){
+	    			this.data = JSON.parse(this.$store.state.creditDatas['userInfo'])
+	    		}else{
+	    			//如果vuex中未存储数据则发送ajax
+	    			console.log('发送ajax')
+	    		}
 	    	}
-			this.optionProy = cityData["86"];
+	    	
+	    	this.optionProy = cityData["86"];
 	    }
 	}
 </script>

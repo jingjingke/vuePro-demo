@@ -48,9 +48,7 @@
 			findLocal(arr){
 				//根据list循环查询缓存中是否存在
 				for(var i =0; i < arr.length; i++){
-					if(localStorage[arr[i].param] === undefined || localStorage[arr[i].param] === null){
-		    			arr[i].isOk = false;
-		    		}else	arr[i].isOk = true;
+					arr[i].isOk = this.$store.state.creditStatus[arr[i].param];
 				}
 			},
 			goApply(){
