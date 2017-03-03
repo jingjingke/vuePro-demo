@@ -10,11 +10,7 @@
 				</label>
 			</li>
 			<li>
-				<label>
-					<span>图片验证码</span>
-					<input type="text" placeholder="请输入图形验证码" v-model.trim='imgCode'>
-				</label>
-				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
+				<canvasCode @codeHasChange='sendCode' name='图片验证码'></canvasCode>
 			</li>
 			<li>
 				<label>
@@ -89,14 +85,9 @@
 	    	smsAjax(){
 	    		console.log('在此发送短信ajax--组件中已$emit该函数');
 	    	},
-	    	changeCode(){
-	        	//点击刷新二维码
-	        	this.canvasCode.createCode(this.canvas);
+	    	sendCode(val){
+	        	this.imgCode = val;
 	        }
-	    },
-	    mounted:function(){
-	    	this.canvas = document.getElementById('canvas');
-	    	this.changeCode();
 	    }
 	}
 </script>

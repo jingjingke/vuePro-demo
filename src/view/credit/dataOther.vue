@@ -33,7 +33,6 @@
 	    			this.datas[i].value = "已提供";
 	    		}
 	    	}
-//	    	console.log(this.$store.state.ohterPicDatas['otherFile'])
 	    },
 	    beforeDestroy:function(){
 	    	//如果都是已提供资料的话则“其它资料”记录标识

@@ -8,8 +8,7 @@
     				<sendSMS @sentAjax='smsAjax' cls='checkCode' timeOut='true'></sendSMS>
     			</li>
     			<li class="liWarp">
-    				<input type="text" placeholder="请输入验证码" class="inputType2" v-model.trim='imgCode'>
-    				<div class="checkImg"><img src="http://file01.16sucai.com/d/file/2013/0612/20130612092046234.jpg"></div>
+    				<canvasCode @codeHasChange='sendCode' placeh='请输入验证码' isTit='false' iCls='inputType2' cCls='checkImg'></canvasCode>
     			</li>
     		</ul>
     		<div class="alertBtns two">
@@ -42,7 +41,7 @@
 	    	goSubmit(){
 	    		var checkCode = /^[0-9]{6,8}$/;
 	    		if(checkCode.test(this.smsCode) == false)		this.callDialog("短信验证码错误");
-	    		else if(checkCode.test(this.imgCode) == false)	this.callDialog("图片验证码错误");
+	    		else if(this.imgCode.toUpperCase() !== this.canvasCode.codeNums.toUpperCase())	this.callDialog("图片验证码错误");
 	    		else{
 	    			this.showDelay = true;
 	    			setTimeout(()=>{
@@ -53,6 +52,10 @@
 	    	smsAjax(){
 	    		//在此发送短信验证码ajax
 	    		console.log('在此发送短信ajax--组件中已$emit该函数');
+	    	},
+	    	sendCode(val){
+	    		this.imgCode = val;
+	    		console.log(this.imgCode)
 	    	}
 	    }
 	}

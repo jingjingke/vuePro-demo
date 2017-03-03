@@ -202,7 +202,6 @@
 	    			console.log('发送ajax')
 	    		}
 	    	}
-	    	
 	    	this.optionProy = cityData["86"];
 	    }
 	}

@@ -104,8 +104,6 @@
 	        	//保存信息时，可以在此判断
 	        	var checkCHA = /[\u4E00-\u9FA5]{2,}/,
 	        		checkTel = /(^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$)|(^((\(\d{3}\))|(\d{3}\-))?(1[3578]\d{9})$)/;
-	        		
-	        	
 	        	if(checkCHA.test(this.data.comName) == false)	this.callDialog("公司名格式不正确");
 	        	else if(checkTel.test(this.data.tel) == false)	this.callDialog("固话格式不正确");
 	        	else if(this.data.type == this.defVal)			this.callDialog("请选择公司类型");

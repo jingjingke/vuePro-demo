@@ -21,11 +21,7 @@
 				</label>
 			</li>
 			<li>
-				<label>
-					<span>验证码</span>
-					<input type="text" placeholder="请输入图形验证码" v-model.trim='code'>
-				</label>
-				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
+				<canvasCode @codeHasChange='sendCode'></canvasCode>
 			</li>
 		</ul>
 		<div class="btnWarp">
@@ -70,14 +66,9 @@
 	        	//...省略
 	            this.$router.push('/loan');
 	        },
-	        changeCode(){
-	        	//点击刷新二维码
-	        	this.canvasCode.createCode(this.canvas);
+	        sendCode(val){
+	        	this.code = val;
 	        }
-	    },
-	    mounted:function(){
-	    	this.canvas = document.getElementById('canvas');
-	    	this.changeCode();
 	    }
 	}
 </script>

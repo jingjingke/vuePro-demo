@@ -20,10 +20,7 @@
 				</label>
 			</li>
 			<li class="safe">
-				<label>
-					<input type="text" placeholder="请输入验证码" v-model.trim='code'>
-				</label>
-				<canvas id="canvas" class="code-img" @click='changeCode'></canvas>
+				<canvasCode @codeHasChange='sendCode' placeh='请输入验证码' isTit='false'></canvasCode>
 			</li>
 		</ul>
 		<div class="btnWarp">
@@ -37,8 +34,7 @@
 	        return {
 	            name:'',
 	            sid:'',
-	            code:'',
-	            canvas:{}			//存放canvas DOM节点
+	            code:''
 	        }
 	    },
 	    methods :{
@@ -46,14 +42,10 @@
 	    		console.log('未发开，直接跳路由');
 	    		this.$router.push('regStep2');
 	    	},
-	    	changeCode(){
-	        	//点击刷新二维码
-	        	this.canvasCode.createCode(this.canvas);
-	        }
-	    },
-	    mounted:function(){
-	    	this.canvas = document.getElementById('canvas');
-	    	this.changeCode();
+	    	sendCode(val){
+	    		this.code = val;
+	    		console.log(this.code)
+	    	}
 	    }
 	}
 </script>

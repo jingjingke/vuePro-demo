@@ -4,7 +4,8 @@ import footComponent from "./common/footer";	//footer
 import listComponent from "./common/list";		//list
 import pageError from "./common/pageError";		//pageError(页面报错)
 import noMore from "./common/noMore";			//noMore(没有更多)
-import sendSMS from "./common/sendSMS";
+import sendSMS from "./common/sendSMS";			//sms
+import canvasCode from './common/canvasCode';	//仿图片验证码
 
 import dialogPopup from "./popup/dialog";		//dialog
 import alertKnow from "./popup/alertKnow";		//alert-know(弹出知识)
@@ -22,6 +23,7 @@ import loanBanner from './loan/top';			//loan-top
 import loanDetail from './loan/detail';			//loan-detail
 
 
+
 export default {
 	topComponent,
 	footComponent,
@@ -29,6 +31,7 @@ export default {
 	pageError,
 	noMore,
 	sendSMS,
+	canvasCode,
 	
 	dialogPopup	,
 	alertKnow,

@@ -50,7 +50,6 @@
 	    		setTimeout(()=>{
 	    			this.$router.back();
 	    		},1500);
-	    		
 	    	}
 	    },
 	    mounted:function(){
