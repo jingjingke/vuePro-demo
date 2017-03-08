@@ -30,7 +30,7 @@
 		npm run build
 ```
 > 注意：【生产环境】在根目录config/index.js文件中build对象'assetsPublicPath'属性
-> 我填写的是我当前的线上资源需放置的地址：'https://jingjingke.github.io/vuePro-demo/dist/'。
+> 我填写的是我当前的线上资源需放置的地址：'https://jingjingke.github.io/vuePro-demo/dist/'
 > （根据你的资源位置填写相应的值，默认值可能会出现生产环境资源404-url不正确的情况）
 
 
