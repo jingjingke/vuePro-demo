@@ -6,7 +6,7 @@
 
 
 
-##使用
+## 使用 ##
 
 （1）克隆项目
 ```bash
@@ -35,7 +35,7 @@
 
 
 
-##前置知识
+## 前置知识 ##
 开发中使用了vue-cli(webpack包)、vue2、vue-router2、vuex2以及部分ES6语法(箭头语法)。建议阅读：
 
 vue2中文指南：[http://cn.vuejs.org/v2/guide/](http://cn.vuejs.org/v2/guide/)
@@ -47,7 +47,7 @@ vuex指南开始：[http://vuex.vuejs.org/zh-cn/intro.html](http://vuex.vuejs.or
 另外可查看vue2中文指南上面的例子汇总(只整理了部分，方便我自己使用而做的)，[点击查看](http://www.jingjingke.com/c/14248.html)。
 
 
-##目录结构
+## 目录结构 ##
 
 ```pre
 
@@ -72,7 +72,7 @@ vuex指南开始：[http://vuex.vuejs.org/zh-cn/intro.html](http://vuex.vuejs.or
 
 ```
 
-##项目截图
+## 项目截图 ##
 
 ![项目首页截图1](http://www.jingjingke.com/uploads/allimg/170213/192541.png)
 ![项目首页截图2](http://www.jingjingke.com/uploads/allimg/170213/192542.png)
