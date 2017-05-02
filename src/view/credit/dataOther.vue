@@ -3,9 +3,11 @@
 		<topComponent title='其它资料'></topComponent>
 		<p class="listTop">资料越完善，借款成功的概率越高，信用状况越好，需要支付的借款费用越少。</p>
 		<ul class="listCom list-arrow no-top">
-			<li v-for='data of datas' @click="$router.push('/credit/uploadPic/' + data.param)">{{data.title}}
-				<i class="hasSuc" :class='{ noSuc : data.value == "未提供" }'>{{data.value}}</i>
-			</li>
+			<listComponent v-for='data in datas' @click="$router.push('/credit/uploadPic/' + data.param)" :title='data.title'>
+				<template slot='right'>
+					<i class="hasSuc" :class='{ noSuc : data.value == "未提供" }'>{{data.value}}</i>
+				</template>
+			</listComponent>
 		</ul>
 	</div>
 </template>
