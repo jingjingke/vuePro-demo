@@ -20,6 +20,6 @@ assets文件夹为存放项目静态文件资源，其中demo、sass两个文件
 │   ├── charfirst.js        // 城市首字母拼字排序
 │   └── zhima.js            // canvas芝麻分
 ├── demo                    // 静态切图页面(git上传时忽略)
-├── sass                    // scss样式文件(git上传时忽略)
+├── sass                    // scss样式文件
 
 ```

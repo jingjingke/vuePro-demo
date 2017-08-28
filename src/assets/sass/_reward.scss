@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+//用户奖励 外衣
+.rewardWarp {
+    .tabTitle {
+        font-weight: bold;
+        border-bottom: none;
+        li {
+            padding: 0;
+            @include box(margin,0,50);
+        }
+    }
+}
+//我的奖励列表
+.rewardList {
+    width: 93.75%;
+    margin: 0 auto;
+    @include point(padding-bottom,20);
+    overflow: hidden;
+    //**[1]默认未使用**的优惠券
+    li {
+        width: 100%;
+        @include point(height,164);
+        @include point(margin-top,20);
+        background: url('../img/prizeBg.png') 0 70% no-repeat #fff;
+        background-size: 100%;
+        overflow: hidden;
+        //奖励金额
+        .price {
+            float: left;
+            width: 30%;
+            @include point(height,94);
+            @include point(font-size,22);
+            color: #f66;
+            text-align: center;
+            @include box(margin,40,0,0,20);
+            border-right: 2px dashed #ccc;
+            //金额数字加粗用
+            b {
+                @include point(font-size,72);
+            }
+        }
+        //奖励信息
+        .info {
+            float: right;
+            width: 63%;
+            @include point(font-size,18);
+            line-height: 1.5em;
+            color: #999;
+            @include point(margin-top,32);
+            //存在抵用券类型
+            span {
+                display: block;
+                @include point(font-size,24);
+                line-height: 2em;
+                color: #333;
+            }
+        }
+    }
+}
+//**[2]已失效**券
+.reward-out li { background-position: 0 33.85%; }
+//**[3]已使用**券
+.reward-used li { background-position: 0 0.25%;}
+//通用【已失效与已使用的券】
+.reward-out, .reward-used {
+    li {
+        background-color: #999;
+        .price { color: #fff;}
+        .info {
+            &,& span { color: #fff;}
+        }
+    }
+}

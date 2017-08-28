@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+//选择城市
+.selectCity {
+    dt {
+        @include point(height,52);
+        a {
+            display:block;
+            width: 100%;
+            @include point(font-size,24);
+            font-weight: bold;
+            @include point(line-height,52);
+            @include point(text-indent,20);
+            background: #f0eff5;
+            position: relative;
+            z-index: 2;
+        }
+    }
+    dd {
+        @include point(font-size,28);
+        @include point(line-height,72);
+        @include point(margin-left,20);
+        border-bottom: 1px solid #ebebeb;
+        &:last-child { border-bottom: 0;}
+    }
+    p {
+        @include point(width,32);
+        @include box(padding,10,0);
+        background: #9ca0a9;
+        @include radius(16);
+        position: fixed;
+        top:50%;
+        @include point(right,8);
+        z-index:9;
+        a {
+            display: block;
+            @include point(font-size,20);
+            line-height:1.6em;
+            font-family: arial;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
+//选择城市浮动在上面的字母
+.floatLetter dt a {
+    position:fixed;
+    @include point(width,640);
+    @include point(top,88);
+    z-index:1;
+}

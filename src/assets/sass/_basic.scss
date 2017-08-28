@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+//common
+@font-face { font-family: "icons";
+    src: url('../font/icons.eot'); /* IE9*/
+    src: url('../font/icons.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/icons.woff') format('woff'), /* chrome、firefox */
+    url('../font/icons.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/icons.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+body, div, ul, ol, li, p, dl , dt , dd , h1, h2, h3, h4 ,button{ margin: 0; padding: 0; -webkit-tap-highlight-color:rgba(0,0,0,0); outline:0;}
+.yahei, body, input, select, textarea { font-family: 'microsoft yahei'; }
+html,body { height: 100%; }
+body {
+    background: #E8EAEC;
+    margin: 0 auto;
+    color: #333;
+}
+input, select, textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+input::-webkit-input-placeholder { color:#ccc;}
+
+ul, ol, li { list-style: none; list-style-type: none;}
+em,i { font-style: normal;}
+a { text-decoration: none; color: #333; }
+
+
+//说明文字
+.explain { @include point(font-size,22); line-height: 1.55em; letter-spacing:rem(-1); color: #999; @include box(padding,0,20); }
+
+//设置container样式
+.container {
+    overflow: hidden;
+    background: #E8EAEC;
+//  @include point(padding-top,88);
+//  @include point(padding-bottom,20);
+    &.no-top { padding-top: 0;}
+    min-height:100%;
+    &:before,&:after { content: ''; display: block;}
+    &:before { @include point(height,88); }     //头部加88高度
+    &:after { @include point(height,20)}        //底部加20高度
+    
+}
+
+
+//通用样式
+.fl { float: left; }
+.fr { float: right; }
+.disNone { display: none; }
+.bold { font-weight: bold;}
+.txtline { text-decoration: underline;}
+.tCenter { text-align: center;}    
+.textL { text-align: left;}
+.textR { text-align: right;}
+.mt10 { @include point(margin-top,10); }
+.mt20 { @include point(margin-top,20); }
+.mt30 { @include point(margin-top,30); }
+.mt40 { @include point(margin-top,40); }
+.pt20 { @include point(padding-top,20); }
+.pt120 { @include point(padding-top,120); }
+.pl20 { @include point(padding-left,20);  }
+.fz26 { @include point(font-size,26); }
+.blue { color: $blue;}
+.gray { color: #ccc;}
+.red { color: $red;}
+.col3 { color: #333;}
+.col6 { color: #666;}
+.col9 { color: #999;}
+.iosTop { height: 16px; background: #3297fd;}
+h2.title {
+    @include point(font-size,28);
+    @include point(line-height,64);
+    border-bottom: 1px solid #ccc;
+    font-weight: normal;
+    color: #333;
+    @include point(text-indent,20);
+}
+.bgF { background-color: #fff; }
+

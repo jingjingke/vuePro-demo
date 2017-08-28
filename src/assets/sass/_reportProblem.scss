@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+//征信相关问题列表
+.reportProblem {
+    dl {
+        background: #fff;
+        dt {
+            @include point(font-size,28);
+            @include point(line-height,46);
+            @include point(height,46);
+            border-bottom: 1px solid #e8e8e8;
+            @include box(padding,15,60,15,24);
+            cursor: pointer;
+            @include txtEllipsis;
+            position: relative;
+            &:after {
+                @include icons;
+                content: $iconArrowR;
+                @include point(font-size,28);
+                color: #ccc;
+                position:absolute;
+                @include point(top,14);
+                @include point(right,18);
+            }
+        }
+        dd {
+            @include point(font-size,24);
+            @include point(line-height,38);
+            color: #666;
+            @include box(padding,20,24);
+            display: none;
+        }
+        &.open {
+            @include point(margin-bottom,28);
+            dt {
+                height: auto;
+                white-space: normal;
+                &:after {
+                    @include webkit(transform,rotate(90deg));
+                    @include point(right,20);
+                }
+            }
+            dd {
+                display: block;
+            }
+        }
+    }
+}

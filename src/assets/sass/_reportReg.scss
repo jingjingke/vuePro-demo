@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+//**如何**征信报告注册步骤
+.reportRegStep {
+    p {
+       @include point(font-size,28); 
+       @include point(line-height,40); 
+       @include box(padding,36,24); 
+       .blue { color: $blue;}
+       &:first-child {@include point(padding-top,26); }
+    }
+    i {
+        display: block;
+        margin: 0 auto;
+        @include point(width,350);
+        @include point(height,350);
+        background: url(../img/recordSetpBg.jpg) no-repeat;
+        background-size: 500%;
+        text-indent: -999em;
+        &.icon02 { background-position:25% 0;}
+        &.icon03 { background-position:50% 0;}
+        &.icon04 { background-position:75% 0;}
+        &.icon05 { background-position:100% 0;}
+    }
+}
+
+//**注册登录**征信报告注册第一步
+.reportStepTit {
+    @include point(font-size,24);
+    @include point(height,150);
+    background: #fff;
+    width: 93.75%;
+    padding: 0 3.125% ;
+    overflow: hidden;
+    position: relative;
+    ul {
+        width: 150%;
+        li {
+            position: absolute;
+            @include point(top,16);
+            @include point(width,150);
+            line-height: 2em;
+            text-align: center;
+            &.ok {
+                i,&:after,&:before { background: #ff9500;}
+            }
+            i {
+                display: block;
+                @include point(width,78);
+                @include point(height,78);
+                @include point(line-height,78);
+                @include point(border-radius,40);
+                @include point(font-size,40);
+                margin: 0 auto;
+                text-align: center;
+                font-family: arial;
+                color: #fff;
+                background: #ccc;
+                
+            }
+            &:after,&:before {
+                display: block;
+                background: #f00;
+                content: '';
+                @include point(width,88);
+                @include point(height,10);
+                position: absolute;
+                @include point(top,37);
+                z-index: 1;
+                background: #ccc;
+            }
+            &:after {
+                @include point(right,-50);
+            }
+            &:before {
+                @include point(left,-50);
+                z-index: 2;
+            }
+            &.step01 {
+                left: 0;
+                &:before { display: none;}
+            }
+            &.step02 {
+                left: 50%;
+                @include point(margin-left,-75);
+                &:after {
+                    z-index: 3;
+                }
+            }
+            &.step03 {
+                right:0;
+                &:after { display: none;}
+            }
+        }
+    }
+}

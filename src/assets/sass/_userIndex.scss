@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+//用户信息
+.userInfo {
+    @include point(padding-bottom,10);
+    border-bottom: 1px solid #dfdfdf;
+    background: #fff;
+    overflow: hidden;
+    //放置 用户信息等等
+    dt {
+        @include point(height,110);
+        @include box(padding,24,20,16,170);
+        @include point(margin-bottom,10);
+        border-bottom: 1px solid #dfdfdf;
+        position: relative;
+        //用户头像的样式
+        .user-logo {
+            display: block;
+            @include point(width,100);
+            @include point(height,100);
+            @include radius(50);
+            color: #dcdcdc;
+            background: #dcdcdc;
+            position: absolute;
+            @include point(top,25);
+            @include point(left,20);
+            overflow: hidden;
+            &:after {
+                @include icons;
+                content:$iconUserPic;
+                @include point(font-size,96);
+                color: #fff;
+                background: rgba(0,0,0,0);
+                position: absolute;
+                @include point(top,0);
+                @include point(left,0);
+                z-index: 3;
+            }
+        }
+        //用户电话号码那一栏
+        .user-tel {
+            @include point(font-size,28);
+            span {
+                display: block;
+                @include point(font-size,22);
+                color: #999;
+            }
+        }
+        //用户等级那一栏
+        .user-tag {
+            @include point(font-size,22);
+            color: #999;
+            overflow: hidden;
+            span {
+                float: left;
+                width: 30%;
+                padding-left: 1.3em;
+                @include point(margin-top,8);
+                position: relative; 
+                &:after {
+                    @include icons;
+                    @include point(font-size,22);
+                    color: #3297fd;
+                    position: absolute;
+                    top: 0;
+                    left:0;
+                }
+                //等级1
+                &.mLevel:after {
+                    content: $iconLevel;
+                    @include point(top,4);
+                }
+                //等级2
+                &.mName:after {
+                    content: $iconName;
+                    @include point(font-size,30);
+                    @include point(left,-8);
+                }
+            }
+        }
+    }
+    //放置 用户申请贷款的数据
+    dd {
+        float: left;
+        width: 49.5%;
+        @include point(font-size,26);
+        text-align: center;
+        span {
+            display: block;
+            @include point(font-size,32);
+            color: #3297fd;
+        }
+        //最后一个dd加个分隔的边框
+        &:last-child {
+            border-left: 1px solid #dfdfdf;
+        }
+    }
+}
+

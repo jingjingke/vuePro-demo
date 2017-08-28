@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+//征信报告banner
+.reportBanner {
+    @include point(height,176);
+    background: url(../img/creditReportBg.jpg) no-repeat;
+    background-size: 100% 100%;
+    text-align: right;
+    overflow: hidden;
+    .look {
+        color: #fff;
+        @include point(font-size,28); 
+        @include point(line-height,86); 
+        @include point(padding-right,20); 
+        @include point(margin-top,90);
+        display: block;
+        &:after {
+            @include icons;
+            display: inline;
+            content: $iconArrowR;
+            color: #ccc;
+        }
+        i {
+            display: inline-block;
+            @include point(width,28);
+            @include point(height,28);
+            @include radius(14);
+            @include point(margin-right,20);
+            background: #fff;
+            position: relative;
+            @include point(top,3);
+            &:after {
+                content: '';
+                @include point(font-size,40);
+                @include icons;
+                content: $iconSuccess;
+                position: absolute;
+                @include point(top,-27);
+                @include point(left,-5);
+                color:#43b800;
+                
+            }
+            
+            
+        }
+    }
+}
+
+//征信报告列表
+.reportList {
+    @include point(line-height,76);
+    @include point(margin-top,18);
+    background: #fff;
+    dt {
+        @include point(font-size,28);
+        @include point(text-indent,18);
+        color: $fontBack;
+        border-left:rem(6) solid #3297fd ;
+        box-shadow:#ddd 0px 1px 0px ;
+        span {
+            color: #999;
+            float: right;
+            @include point(font-size,26);
+            @include point(padding-right,24);
+        }
+    }
+    dd {
+       @include point(font-size,24);
+       color: #666;
+       @include point(margin-left,25);
+       border-bottom: 1px solid #f1f1f1;
+       .time { @include point(padding-right,58);}
+       &:last-child { border-bottom:0;}
+       &:after {
+           @include icons;
+           content: $iconArrowR;
+           float: right;
+           color: #ccc;
+           @include point(font-size,28);
+           @include point(padding-right,20);
+       }
+    }
+}

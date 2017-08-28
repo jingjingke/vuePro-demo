@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+//列表通用样式归整
+.listCom {
+    border-top: 1px solid #dfdfdf;
+    background-color: #fff;
+    li {
+        position: relative;
+        @include point(font-size,28);
+        @include point(height,76);
+        @include point(line-height,76);
+        @include point(margin-left,24);
+        border-bottom: 1px solid #dfdfdf;
+        cursor: pointer;
+        //最后一个li隐藏下边框
+        &:last-child { border-bottom: none; }
+    }
+    
+    //[已完成/未完成]***[已提供/未提供]样式
+    .hasSuc,.noSuc {
+        position: absolute; top: 50%; right: 0;
+        @include point(line-height,40); @include point(right,60); @include point(margin-top,-20);
+    }
+    .hasSuc { color: $blue;}
+    .noSuc { color: #ccc;} 
+    
+    //ul**无上边框**
+    &.no-top { border-top: 0;}
+}
+   
+//ul-li**左图标与右箭头通用样式定义
+.list-arrow li:after, .list-icon li:before {
+    position: absolute;
+    @include icons;
+    @include point(line-height,64);
+    top: 50%;
+    @include point(margin-top,-32);
+}
+
+//一般是指右边***向右剪头***
+.list-arrow li:after {
+    content: $iconArrowR;
+    @include point(font-size,30);
+    color: #a0a0a0;
+    @include point(right,26);
+}
+
+//帮助中心列表**一行超出隐藏**
+.list-help li {
+    @include point(font-size,26);
+    @include point(padding-right,56);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//***左侧图标*** - 需要与下面的一长组icon-param配合使用
+.list-icon li{
+    padding-left: 2.2em;
+    &:before {
+        @include point(font-size,40);
+        color: $blue;
+        left: 0;
+    }
+}
+    //借款
+    .icon-jiekuan:before { content: $iconJiekuan; }
+    //还款
+    .icon-huankuan:before{ content: $iconHuankuan; }
+    //奖励
+    .icon-jiangli:before { content: $iconJiangli; }
+    //帮助
+    .icon-help:before { content: $iconHelp; }
+    //意见
+    .icon-yijian:before { content: $iconYijian; }
+    //关于
+    .icon-about:before { content: $iconAbout; }
+    //扫描-识别
+    .icon-scan:before { content: $iconScan; }
+    //联系人
+    .icon-urgent:before { content: $iconUrgent; }
+    //手机
+    .icon-phone:before { content: $iconPhone; }
+    //工作信息
+    .icon-work:before { content: $iconWorkInfo; }
+    //身份证图
+    .icon-idPic:before { content: $iconIdPic; }
+    //公积金
+    .icon-fund:before { content: $iconFund; }
+    //社保
+    .icon-shebao:before { content: $iconShebao; }
+    //储蓄卡
+    .icon-chuxu:before { content: $iconChuxu; }
+    //芝麻信用
+    .icon-zhima:before { content: $iconZhima; }
+    //银行卡
+    .icon-bank:before { content: $iconBank; }
+    //央行征信
+    .icon-credit:before { content: $iconCredit; }
+    //完善信息--个人信息
+    .icon-info:before { content: $iconInfo; }
+    //支付宝
+    .icon-alipay:before { content: $iconAlipay; }
+    //其它资料
+    .icon-other:before { content: $iconOther; }
+    
+//***li加高***后的样式
+.list-plus li{
+    @include point(height,90);
+    @include point(line-height,90);
+    //li加高后两行显示的样式
+    &.plus-two {
+        .tit { display: block; @include point(line-height,40); @include point(padding-top,10);}
+        .bot { display: block; @include point(line-height,28); @include point(font-size,20); color: #999;}
+    }
+}
+//***li字体变小***后的样式
+.list-mini {
+    li { @include point(font-size,26); }
+    .mini {
+        @include point(height,70);
+        @include point(line-height,70);
+    }
+}
+
+
+//左侧是***带银行图标***的列表 需要li中配合bankXX图标一起使用
+.list-bank {
+    li {
+        @include point(height,90);
+        @include point(line-height,90);
+        &:before {
+            @extend .bankIcons;
+            @include point(width,64);
+            @include point(height,64);
+            float: left;
+            @include box(margin,13,20,0,0);
+        }
+        //bankXX需要查看_bankIcon.scss文件
+    }
+}  
+//一般用在列表上方标题通用的样式
+.listTop {
+    @include point(font-size,24);
+    color: #666;
+    line-height: 1.35em;
+    text-align: justify;
+    @include box(padding,15,20);
+    //**添加银行卡**头蓝色色提示
+    &.bg-blue {
+        color: #333;
+        background:#dcf0ff;
+        @include box(padding,22,20);
+    }
+}
+
+//退出登录样式
+.signOut {
+    background-color: #fff;
+    @include point(height,72);
+    @include point(line-height,72);
+    text-align: center;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    cursor: pointer;
+    &.noB { border: none;}
+}

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+//成功提示-温馨提示-授权成功等相似页面
+.successTips {
+    @include point(padding-bottom,56);
+    background: #fff;
+    //此before做通用的--类似支付宝认证授权这类
+    &:before {
+        @include icons;
+        content: $iconSuccess;
+        @include point(font-size,144);
+        line-height: 1em;
+        text-align: center;
+        color: $blue;
+        @include point(padding-top,56);
+    }
+    h2 {
+        @include point(font-size,30);
+        line-height: 1.65em;
+        font-weight: normal;
+        text-align: center;
+        @include point(padding-top,15);
+    }
+    p {
+        @include point(font-size,24);
+        line-height: 1.65em;
+        color: #666;
+        @include box(padding,0,18);
+    }
+    
+    //身份认证--对勾较小的那个样式
+    &.tips-id:before {
+        @include point(font-size,126);
+    }
+    
+    //报告注册成功--对勾较小的那个样式
+    &.tips-reg {
+        @include point(padding-bottom,46);
+        &:before {
+            @include point(font-size,108);
+            @include point(padding-top,50);
+        }
+        h2 { @include point(font-size,32); padding-top:0; }
+    }
+     
+    //报告申请中...
+    &.tips-apply {
+        &:before { display: none; }
+        h2 {
+            @include point(font-size,32);
+            @include point(line-height,130);
+            &:before {
+                @include icons;
+                content: $iconSuccess;
+                color: $blue;
+                @include point(font-size,72);
+                @include point(margin-right,15);
+                display: inline-block;
+                position: relative;
+                @include point(top,15);
+            }
+        }
+    }
+    
+    //温馨提示-登录过期笑脸
+    &.tips-login {
+        &:before { display: none; }
+        @include point(padding-bottom,72);
+        h2 {
+            @include point(font-size,32);
+            @include point(line-height,72);
+            @include point(padding-top,56);
+            &:before {
+                @include icons; content: $iconSmile;
+                color: $blue;
+                display: inline-block;
+                @include point(margin-right,15);
+            }
+        }
+        p { @include point(font-size,26); color: #333; }
+    }
+    
+    //还款确认信息
+    &.tips-record {
+        background: none;
+        &:before {
+            @include point(font-size,124);
+            @include box(padding,66,0,70);
+        }
+        p { font-weight: bold; color: #333;}
+    }
+    
+    
+}

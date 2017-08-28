@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+//登录注册时用的上方的图标
+.logoIcon {
+    @include point(width,184);
+    @include point(height,250);
+    @include box(margin,40,auto);
+    background: url("../img/logoImg.png") 0 0 no-repeat;
+    background-size: 100%;
+    text-indent: -999em;
+}
+
+//马上注册+忘记密码时用的样式
+.forgetWarp {
+    @include point(font-size,22);
+    @include point(line-height,80);
+    @include box(margin,0,30);
+    a {
+        color: #666;
+        text-decoration: none;
+        display: inline-block;
+    }
+}

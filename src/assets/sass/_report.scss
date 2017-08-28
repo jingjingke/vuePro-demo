@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+//征信报告封面--标题
+.reportCoverTit {
+    border-bottom:1px solid #d8d8d8;
+    position: relative;
+    background: #fff;
+    @include point(font-size,24);
+    @include point(line-height,44);
+    @include box(padding,13,0,13,24);
+    p {
+        position: absolute;
+        @include point(top,15);
+        @include point(right,26);
+        line-height: 1.1em;
+        text-align: right;
+        color: #999;
+        @include point(font-size,24);
+        b {
+            color: $blue;
+            display: block;
+            @include point(font-size,40);
+            line-height: 1.25em;
+        }
+    }
+}
+//征信报告封面--DL列表
+.reportCoverDl {
+    background: #fff;
+    border-bottom:1px solid #d8d8d8;
+    @include point(margin-top,18);
+    overflow: hidden;
+    dt {
+        @include point(line-height,76);
+        @include box(margin,0,24);
+        border-bottom: 1px solid #e8e8e8;
+        @include point(font-size,28);
+        color: $fontBack;
+        position: relative;
+        i {
+            float: right;
+            @include point(font-size,24);
+            @include point(padding-right,32);
+        }
+        &:after {
+            @include icons;
+            content: $iconArrowR;
+            position: absolute;
+            top: 0;
+            @include point(right,-8);
+            @include point(font-size,32);
+            color: #ccc;
+        }
+        &:last-child { border-bottom: 0;}
+    }
+    &.long dt {
+        margin-right: 0;
+        @include point(padding-right,24);
+        &:after { @include point(right,16); }
+    }
+    dd {
+        width: 19.99%;
+        float: left;
+        @include point(font-size,20);
+        @include box(padding,80,0,10);
+        text-align: center;
+        position: relative;
+        i {
+            @include txtEllipsis;
+        }
+        b {
+            color: $blue;
+            font-weight: normal;
+            line-height: 2em;
+            @include point(font-size,24);
+            &.gray { color: #999;}
+        }
+        &:after {
+            @include icons;
+            position: absolute;
+            @include point(width,48);
+            @include point(top,20);
+            @include point(font-size,44);
+            color: #999;
+            left: 50%;
+            @include point(margin-left,-25);
+        }
+        &.icon01:after {content: $iconCard;}
+        &.icon02:after {content: $iconSign;}
+        &.icon03:after {content: $iconTime;}
+        &.icon04:after {content: $iconDefend;}
+        &.icon05:after {content: $iconBy90;}
+    }
+}
+
+//征信报告列表页--DL列表
+.reportDllist {
+    background: #fff;
+    color: $fontBack;
+    border-bottom: 1px solid #d8d8d8;
+    dt {
+        @include box(padding,0,24);
+        @include point(font-size,28);
+        @include point(line-height,76);
+        i { float: right; @include point(font-size,24);}
+    }
+    dd {
+        @include box(padding,20,16,20,24);
+        @include point(font-size,24);
+        word-break: break-all;
+        text-align: justify;
+        position: relative;
+        background: #f1f3f4;
+        @include point(margin-bottom,6);
+        &:last-child { margin-bottom: 0;}
+    }
+    //担保和逾期图标（应用于dd标签）
+    .iconTrue,.iconSign {
+        @include point(padding-left,96);
+        &:before {
+            @include icons;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            @include point(font-size,56);
+            @include point(width,96);
+            @include point(line-height,60);
+            text-align: center;
+            @include point(margin-top,-32);
+        }
+    }
+    .iconTrue:before { color: #50a621; content: $iconGood;}
+    .iconSign:before { color: #ffb900; content: $iconSign;}
+}
+
+//征信报告详情
+.reportDetail {
+    background: #fff;
+    border-bottom: 1px solid #d8d8d8;
+    color:$fontBack;
+    dt {
+        @include point(font-size,28);
+        @include point(line-height,76);
+        @include point(margin-left,24);
+        border-bottom: 1px solid #f1f1f1;
+    }
+    dd {
+        @include point(font-size,24);
+        @include point(margin-top,6);
+        @include box(padding,20,16,20,24);
+        word-break:break-all;
+        p {
+            @include point(line-height,50);
+            overflow: hidden;
+            span {
+                float: left; width: 50%; color: #999;
+                @include txtEllipsis;
+            }
+        }
+    }
+}
+

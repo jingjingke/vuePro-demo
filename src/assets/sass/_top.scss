@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+//头部[一般是指蓝色条那块]
+.top {
+    @include point(font-size,28);
+    @include point(height,88);
+    @include point(line-height,88);
+    background-color: $blue;
+    position:fixed;
+    top: 0;
+    z-index: 9;
+    width:100%;
+    //居中标题
+    h1 {
+        text-align: center;
+        color: $fff;
+        @include point(font-size,30);
+    }
+    a,span {
+        color: $fff;
+        text-decoration: none;
+        position: absolute;
+        @include point(left,30);
+        top:0;
+        cursor: pointer;
+    }
+    //左侧通用[一般是返回]
+    .back {
+        @include point(left,50);
+        &:after {
+            @include icons;
+            content: $iconBack;
+            @include point(width,30);
+            @include point(line-height,88);
+            position: absolute;
+            top: 0;
+            @include point(left,-28);
+        }
+    }
+    //右侧通用[一般是帮助-保存等]
+    .save {
+        left: auto;
+        @include point(right,24);
+    }
+    
+    //***图标top-icon***
+        //帮助疑问
+        .ask:after { content: $iconHelp; }
+        //推荐联系人
+        .recom:after { content: $iconRecom;}
+}
+
+//右侧使用图标 需要和和top中的icon-XX配合使用
+.top-icon {
+    i {
+        @include point(width,80);
+        color: #fff;
+        @include point(font-size,48);
+        @include point(line-height,80);
+        text-align: center;
+        position:absolute;
+        top: 50%;
+        right: 0;
+        @include point(margin-top,-40);
+        cursor: pointer;
+        &:after {
+            @include icons;
+            position: relative;
+            @include point(top,2);
+            @include point(right,3);
+        }
+    }
+}

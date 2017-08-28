@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+//芝麻分数canvas效果
+.zhimaCanvas {
+    text-align: center;
+    @include point(padding-top,170);
+    canvas {
+        @include point(width,450);
+        @include point(height,450);
+    }
+}

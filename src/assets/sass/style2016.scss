@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@import '_mixin.scss';
+
+//basic基本通用的样式
+@import '_basic.scss';
+
+//[**基调**]银行图标汇总样式
+@import '_bankIcon.scss';
+
+//[**基调**]top-头部可通用样式
+@import '_top.scss';
+
+//[**基调**]footer-底部浮动层可通用样式
+@import '_footer.scss';
+
+//[**基调**]formCom-表单布局可通用样式
+@import '_formCom.scss';
+
+//[**基调**]listCom-列表布局可通用样式
+@import '_listCom.scss';
+
+//页面出错，找不到等等
+@import '_pageError.scss';
+
+//成功页面，温馨提示授权成功等等
+@import '_pageSuc.scss';
+
+//登录注册时用到的上方图标样式，以及忘记密码那一栏需要的样式
+@import '_login.scss';
+
+//app首页打开的，三个贷款申请的入口
+@import '_index.scss';
+
+//添加银行卡相关以及支持银行页面样式
+@import '_addBank.scss';
+
+//留言板可以通用样式
+@import '_feedback.scss';
+
+//DL-类似详情页-标题+内容模式【应用于关于我们】-结构dl+dt+dd
+@import '_detail.scss';
+
+//[**不通用**]芝麻认证页面，用到的cavans样式
+@import '_zhima.scss';
+
+//[**不通用**]上传图片特有样式
+@import '_uploadPic.scss';
+
+//[**不通用**]三个贷款详情介绍页面
+@import '_loanDetail.scss';
+
+//[**不通用**]手机认证页面上端显示的图标
+@import '_mobileIcon.scss';
+
+//[**不通用**]选择城市【按城市首字母拼音排序城市列表】
+@import '_selectCity.scss';
+
+//[**不通用**]个人中心首页的样式【上方信息简要】
+@import '_userIndex.scss';
+
+//[**不通用**]个人中心-我的奖励
+
+@import '_reward.scss';
+//[**不通用**]必填资料页面
+@import '_mustInfo.scss';
+
+//用户贷款相关
+@import '_userBorrow.scss';
+
+//贷款合同+委托服务确认书相关
+@import '_contract.scss';
+
+//我的还款相关样式
+@import '_userRepay.scss';
+
+//身份证识别拍照等
+@import '_checkPhoto.scss';
+
+//简单问答模式
+@import '_wenda.scss';
+
+
+//征信报告首页
+@import '_reportIndex.scss';
+//征信报告验证问题
+@import '_reportAnswers.scss';
+//征信报告相关问题
+@import '_reportProblem.scss';
+//如何注册以及去注册央行征信
+@import '_reportReg.scss';
+//征信报告封面与列表详情内
+@import '_report.scss';
+
+
+//页面弹框等相关（会话-弹层等）
+@import '_alert.scss';
+//页面加载等待转圈
+@import '_delayTime.scss';
+//页面仿dialog弹窗
+@import '_dialog.scss';
+
+//其它零碎的样式
+@import '_common.scss';
+
+// css3 media
+@import '_media.scss';

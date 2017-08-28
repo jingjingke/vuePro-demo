@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+//填写资料的步骤
+.mustInfo {
+    background: #fff;
+    @include point(padding-left,24);
+    li {
+        @include point(height,100);
+        border-bottom:1px solid #e8e8e8;
+        position:relative;
+        &:last-child { border-bottom: none; }
+        //存在步骤左侧icon[蓝底圆+白色图标]
+        i {
+            float: left;
+            @include point(width,65);
+            @include point(height,65);
+            @include point(line-height,65);
+            text-align: center;
+            background-color: #ccc;
+            @include radius(33);
+            @include box(margin,20,30,0,0);
+            position: relative;
+            &:before {
+                @include icons;
+                @include point(font-size,40);
+                color: #fff;
+            }
+            
+        }
+            //身份认证
+            .icon01:before { content: $iconIdInfo; }
+            //人脸识别
+            .icon02:before { content: $iconScan; }
+            //紧急联系人
+            .icon03:before { content: $iconUrgent; }
+            //手机认证
+            .icon04:before { content: $iconPhone; }
+            //工作信息
+            .icon05:before { content: $iconWorkInfo; }
+        //放置 第几步
+        span {
+            display: block;
+            @include point(font-size,20);
+            @include point(padding-top,20);
+            color: #999;
+        }
+        //放置  步骤名称
+        b {
+            display: block;
+            @include point(font-size,28);
+            font-weight: normal;
+        }
+    }
+    //右侧向右的箭头+右侧锁的样式
+    .lock,.arrow {
+        &:before {
+            position:absolute;
+            display: block;
+            @include point(width,65);
+            text-align: center;
+            @include point(line-height,65);
+            top: 50%;
+            right: 0;
+            @include point(margin-top,-33);
+            @include icons;
+            color: #ccc;
+        }
+    }
+    .lock:before { content: $iconLock; @include point(right,5); }
+    .arrow:before { content: $iconArrowR; }
+    //右侧“已完成”字样
+    .ok:after {
+        content:'\5DF2\5B8C\6210';
+        @include point(font-size,28);
+        @include point(line-height,100);
+        color: $blue;
+        position:absolute;
+        top: 0;
+        @include point(right,60);
+    }
+    //等待填资料的选项也用蓝底
+    .wait i { background-color: $blue;}
+}
+
+//选填资料入口
+.infoLink {
+    line-height:1.65em;
+    @include point(font-size,20);
+    @include box(padding,18,0,0);
+    color: #999;
+    //标题处向右键头
+    .arrow {
+        display:block;
+        @include point(font-size,24);
+        color:#666;
+        &:after {
+            @include icons;
+            content: $iconArrowR;
+            color: #999;
+            display:inline;
+        }
+    }
+}

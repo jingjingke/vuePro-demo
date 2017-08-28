@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.delayTime {
+    position: fixed;
+    z-index: 101;
+    top: 50%;
+    left: 50%;
+    @include point(width,250);
+    @include point(font-size,28);
+    color: #fff;
+    text-align: center;
+    @include box(margin,-110,0,0,-125);
+    @include box(padding,38,0);
+    @include point(border-radius,20);
+    background: #000;
+    //添加遮罩，让页面其它位置点不了
+//  &:after {
+//      display: block;
+//      content: '';
+//      width: 100%;
+//      height: 100%;
+//      position: fixed;
+//      top: 0;
+//      left: 0;
+//  }
+    //普通只有等待图的
+    &:before {
+        display: block;
+        content: '';
+        @include point(width,78);
+        @include point(height,78);
+        @include box(margin,20,auto); 
+        background: url(../img/delayBg.png) no-repeat;
+        background-size: 100%;
+        -webkit-animation:delayCir 1s infinite linear;
+        animation:delayCir 1s infinite linear;
+    }
+    //等待图+文字
+    &.text {
+        @include box(padding,20,0,30);
+        &:before {
+            @include box(margin,15,auto); 
+        }
+    }
+    //等待图改为正确图标
+    
+    //等待图改为错误图标
+}
+@-webkit-keyframes delayCir{0%{ -webkit-transform:rotate(0deg);}100%{ -webkit-transform:rotate(360deg);}}
+@keyframes delayCir{0%{ transform:rotate(0deg);}100%{ transform:rotate(360deg);}}

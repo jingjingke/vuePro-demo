@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+//合同详情页面
+.borrowContract {
+    @include box(padding,18,16,120);
+    @include point(font-size,14);
+    @include point(line-height,24);
+    text-align: justify;
+    
+    .t2em p { text-indent: 2em; }
+    h2,h3 { font-weight: normal;  text-align: center; }
+    h2 { @include point(font-size,22); line-height: 1.5em;}
+    h3 { @include point(font-size,20); line-height: 4em; }
+    h4 { @include point(font-size,16); @include point(padding-top,30); font-weight: normal; text-indent: 2em;}
+    .pt0 { padding-top: 0;}
+    .id { text-indent:65%; text-align:left; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+    .pp50 {
+        overflow: hidden;
+        @include box(padding,50,0);
+        p { float: left; width: 49.9%; text-align:left;}
+    }
+    .seal {
+        display: block;
+        @include point(width,151);
+        @include point(height,146);
+        background: url(../img/chop_min.png) no-repeat;
+        background-size: 100%;
+        @include point(margin-top,20);
+        text-indent: -999em;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        td,th {
+            @include point(line-height,24);
+            @include point(text-indent,8);
+            border: 1px solid #333;
+        }
+    }
+}
+
+
+//委托书样式
+.borrowAgreem {
+    @include point(font-size,18);
+    @include box(padding,0,16,120);
+    @include point(line-height,30);
+    h2 {
+        @include point(font-size,32);
+        @include point(line-height,100);
+        @include point(margin-top,10);
+        text-align: center;
+    }
+    p,ol {
+        @include point(padding-bottom,40);
+    }
+    p,li {
+        text-indent: 2em;
+        text-align: justify;
+    }
+    
+}

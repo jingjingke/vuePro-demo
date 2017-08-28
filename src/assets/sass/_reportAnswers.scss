@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+//征信身份验证问题S
+.reportAnswers {
+    //身份验证-时间提示
+    .timeTip {
+        @include point(font-size,28);
+        @include point(line-height,76);
+        color: #fff;
+        text-align: center;
+        background: #323232;
+        span {
+            color:$blue;
+            @include box(padding,0,12);
+        }
+    }
+    //身份验证-答题
+    .ansList {
+        li {
+            @include point(font-size,24);
+            color: $fontBack;
+            @include box(padding,28,25,0);
+            p {
+                @include point(font-size,28);
+                @include point(line-height,46);
+                text-indent: 2.4em;
+                font-weight: bold;
+                position: relative;
+                span {
+                    display:block;
+                    @include point(width,60);
+                    @include point(line-height,42);
+                    color: #fff;
+                    text-indent:0;
+                    text-align: center;
+                    background: #323232;
+                    border-radius: rem(10);
+                    position: absolute;
+                    left: 0;
+                    @include point(top,2);
+                }
+            }
+            label {
+                display: block;
+                @include point(line-height,74);
+                @include point(text-indent,22);
+                @include point(margin-top,18);
+                border: 1px solid #ddd;
+                @include point(border-radius,12);
+                cursor: pointer;
+                input { display: none;}
+                &.checked {
+                    background: $blue;
+                    border: 1px solid $blue;
+                    color: #fff;
+                    position: relative;
+                    &:after {
+                        @include icons;
+                        content: $iconTrue;
+                        float: right;
+                        @include point(font-size,32);
+                        @include point(padding-right,28);
+                    }
+                }
+            }
+        }
+    }
+}

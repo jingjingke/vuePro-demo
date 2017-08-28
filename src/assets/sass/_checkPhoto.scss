@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+//身份证拍照识别
+.photoCamera {
+    overflow: hidden;
+    @include point(height,208);
+    li {
+        float: left;
+        width: 45.3%;
+        height:100%;
+        overflow: hidden;
+        margin-left:3.125%;
+        display:inline;
+        position: relative;
+        background: #fff;
+        img { width: 100%; height: 100%; position: relative; z-index: 2;}
+        //默认有如果一个灰色背景,加上noCamera样式则不要灰色背景
+        &:after {
+            position: absolute;
+            content: '';
+            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        &.noCamera:after { display: none;}
+        //通过-用于制作还未照像时的背景
+        &:before {
+            position: absolute;
+            display: block;
+            @include point(line-height,208);
+            text-align: center;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            color: #e8eaec;
+            @include icons;
+            @include point(font-size,202);
+        }
+        //身份证正反面以及银行卡背景图
+        &.facade:before { content: $iconIdcard01; }
+        &.obverse:before { content: $iconIdcard02; }
+        &.bank:before { content: $iconBankid; }
+    }
+    
+    //银行卡拍照的样式
+    &.bank-card {
+        @include point(height,230);
+        li {
+            width: 93.725%;
+            img { width: 60%; display: block; margin: 0 auto;}
+            .cameraIcon {
+                @include point(width,128);
+                @include point(height,128);
+                @include box(margin,-64,0,0,-64);
+                @include radius(64);
+                &:before {
+                    @include point(font-size,72);
+                    @include point(margin-top,4);
+                }
+            }
+            &:before {
+                @include point(font-size,228);
+                @include point(line-height,230);
+            }
+        }
+    }
+}
+
+//带相机的图标样式
+.cameraIcon {
+    position: absolute;
+    z-index: 6;
+    display: block;
+    @include point(width,112);
+    @include point(height,112);
+    left: 50%;
+    top: 50%;
+    @include box(margin,-56,0,0,-56);
+    @include radius(56);
+    color: #fff;
+    background: $blue;
+    @include point(font-size,22);
+    line-height: 1.1em;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+        display: block;
+        @include icons;
+        content: $iconCamera2;
+        @include point(font-size,60);
+        line-height: 1.15em;
+        position: relative;
+        @include point(top,6);
+    }
+}

@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+.bankList {
+    @include point(height,100);
+    @include point(line-height,34);
+    @include box(padding,20,40,0,164);
+    background: #fff;
+    position: relative;
+    //用于放置银行图标
+    &:before {
+        @extend .bankIcons;
+        @include point(width,80);
+        @include point(height,80);
+        position: absolute;
+        @include point(top,20);
+        @include point(left,40);
+        
+    }
+    //用于放置 银行名字
+    b { @include point(font-size,26);}
+    //用于放置 银行卡尾号 ---[不换行]
+    span { color: #999; @include point(font-size,22); padding-left:2em; }
+    //用于放置 银行卡尾号---[带换行]
+    em { display: block; @include point(font-size,22); @include point(padding-top,6);}
+    //用于放置  限额说明
+    p { color: #999; @include point(font-size,20); @include point(padding-top,5); }
+    //"收款卡"右上角
+    .bank-pay1 {
+        @include point(font-size,24);
+        position: relative;
+        @include point(top,2);
+    }
+    //"收款卡"垂直居中
+    .bank-pay2 {
+        position: absolute;
+        @include point(top,40);
+        @include point(right,24);
+    }
+}
+
+//银行详情内容
+.bankDetail {
+    @include point(font-size,26);
+    @include point(padding-bottom,24);
+    background: #fff;
+    //作标题
+    dt {
+        @include point(line-height,56);
+        @include point(text-indent,20);
+        color: #666;
+        font-weight:bold;
+        border-bottom: 1px solid #e8e8e8;
+        @include point(margin-bottom,10);
+    }
+    //作列表
+    dd {
+        color: #999;
+        line-height:1.5em;
+        @include box(padding,8,20,0);
+        overflow: hidden;
+        b {
+            color: #333;
+            float: right;
+            width: 70%;
+        }
+    }
+}
+
+//支持银行卡
+.supportBank {
+    @include point(font-size,28);
+    @include point(line-height,80);
+    overflow: hidden;
+    //作标题
+    dt {
+        @include point(line-height,74);
+        @include point(text-indent,45);
+    }
+    //作列表
+    dd {
+        float: left;
+        width: 49.99%;
+        &:before {
+            @extend .bankIcons;
+            float: left;
+            @include point(width,56);
+            @include point(height,56);
+            @include box(margin,13,28,0,45);
+        }
+       //bankXX需要查看_bankIcon.scss文件
+    }
+}

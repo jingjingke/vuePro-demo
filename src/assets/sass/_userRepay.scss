@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+//我的还款
+.repayList {
+    @include box(padding,12,20);
+    @include point(margin-top,20);
+    background: #fff;
+    @include point(font-size,22);
+    p {
+        line-height: 1.65em;
+        overflow: hidden;
+        span {
+            float: right;
+        }
+    }
+    .tit { @include point(line-height,44);}
+    .all { line-height:2em; font-weight: bold; }
+    .fz28 { @include point(font-size,28); }
+    .fz26 { @include point(font-size,26); }
+}
+//还款-还款金额确定
+.repayMent {
+    .bank {
+        &:before {
+            @extend .bankIcons;
+            display: inline-block;
+            @include point(width,46);
+            @include point(height,46);
+            @include point(margin-right,18);
+            vertical-align: middle;
+            position: relative;
+            @include point(top,-4);
+        }
+    }
+    .tip {
+        @include box(padding,0,20);
+        p {
+           @include point(font-size,18); 
+           line-height:3.65em;
+           text-align: center;
+        }
+    }
+}
+
+//还款记录列表
+.repayRecord {
+    @include point(margin-top,20);
+    li {
+        background: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        @include point(font-size,22);
+        @include box(padding,10,20);
+        p {
+            @include point(height,40);
+            @include point(line-height,40);
+            color: #999;
+            .money {
+                @include point(font-size,28);
+                color: #333;
+            }
+            .col6 {
+                color: #666;
+            }              
+        }
+    }
+}

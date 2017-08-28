@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.mobileIcon {
+    display: block;
+    @include point(height,240);
+    position: relative;
+    //放置 图标
+    &:after {
+        @include icons;
+        content: $iconMobile;
+        color: $blue;
+        @include point(font-size,176);
+        @include point(line-height,240);
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+    //放置图标下面的白色底
+    &:before {
+        display: block;
+        content: '';
+        @include point(width,140);
+        @include point(height,140);
+        @include point(margin-left,-70);
+        @include radius(70);
+        background: #fff;
+        position:absolute;
+        @include point(top,50);
+        left: 50%;
+    }
+}
+
+

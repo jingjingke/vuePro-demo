@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+//几个借款类型banner
+.loanBanner {
+    @include point(height,348);
+    color: #fff;
+    @include point(margin-top,-128);
+    position:relative;
+    img { height: 100%; position: relative; z-index: 1;}
+    p {
+        width:100%;
+        @include point(font-size,32);
+        text-align:center;
+        position:absolute; 
+        @include point(top,120);
+        left: 0;
+        z-index: 2;
+        .tit {
+            display:block;
+            @include point(font-size,42);
+            @include point(padding-bottom,16);
+        }
+    }
+    //返回按钮--代替top-->back
+    .back {
+        color: #fff;
+        @include point(width,64);
+        @include point(height,64);
+        @include point(line-height,64);
+        text-align:center;
+        text-decoration:none;
+        position:absolute;
+        @include point(top,50);
+        left:0;
+        z-index: 3;
+        &:after {
+            @include icons;
+            content: $iconBack;
+            cursor:pointer;
+        }
+    }
+}
+
+//几个借款详情内容
+.loanDetail {
+    @include point(padding-bottom,114);
+    dl {
+        background:#fff;
+        @include point(margin-top,20);
+        dt {
+            @include point(line-height,68);
+            @include point(text-indent,20);
+            @include point(font-size,26);
+            position: relative;
+            font-weight: bold;
+        }
+        dd {
+            @include point(font-size,24);
+            @include point(line-height,48);
+            @include box(padding,12,20);
+            border-top:1px solid #e5e5e5;
+        }
+    }
+    
+    //可以收起的DL
+    .hasIcon {
+        dt:before {
+            @include icons;
+            content: $iconDown;
+            float: right;
+            color: #ccc;
+            @include point(font-size,32);
+            @include point(padding-right,20);
+            font-weight: normal;
+            @include webkit(transition,all 0.4s)
+        }
+    }
+    
+    //向下箭头【配合在hasIcon中使用】
+    .down {
+        dt:before {
+            @include webkit(transform,rotate(180deg));
+        }
+    }
+    
+    //加红色的热点小圆
+    .hot dt:after {
+        content: '·';
+        @include point(font-size,56);
+        @include point(line-height,60);
+        @include point(margin-left,-14);
+        position: absolute;
+        color: #f33;
+    }
+}

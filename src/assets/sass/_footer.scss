@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+//底部，三个选项卡那里
+.footer {
+    @include point(height,88);
+    ul{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        @include point(padding-top,5);
+        @include point(height,83);
+        @include point(font-size,18);
+        background: #e3e3e3;
+        border-top: 2px #dcdcdc solid;
+    }
+    li {
+        float: left;
+        width: 33.3%;
+        overflow: hidden;
+        text-align: center;
+        &:before {
+            @include icons;
+            @include point(line-height,50);
+            @include point(font-size,46);
+            color: #777;
+        }
+        //贷款
+        &.loan:before { content:$iconJiekuan; }
+        //信用
+        &.credit:before { content:$iconCredit; }
+        //用户
+        &.user:before { content:$iconPerson; }
+        &.on{
+            &,&:before { color: $blue;}
+        }
+    }
+}

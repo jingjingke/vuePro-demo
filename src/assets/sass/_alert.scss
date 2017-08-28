@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+//错误信息顶部弹出消息
+.errorTips {
+    position: fixed;
+    @include point(top,100);
+    @include point(line-height,76);
+    @include point(font-size,28);
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+}
+
+//**短信验证弹窗可通用 开始
+.alertCheck {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: hidden;
+}
+.alertCheckCon {
+    @include point(font-size,28);
+    @include point(width,470);
+    position:fixed;
+    bottom: 50%;
+    left: 50%;
+    @include box(margin,0,0,-100,-235);
+    @include point(padding-top,10);
+    @include point(border-radius,10);
+    text-align: justify;
+    background: #fff;
+    &.min_height { min-height: 220px; }
+    .title {
+        @include box(padding,16,40,0);
+        @include point(font-size,28);
+        @include point(line-height,34);
+        font-weight:500;
+    }
+    //嵌套的表单
+    .forms {
+        @include box(padding,0,30,15);
+        li {
+            @include point(margin-top,18);
+            @include point(font-size,24);
+            overflow: hidden;
+        }
+        input {
+            float: left;
+            @include point(font-size,24);
+            @include box(padding,20,0);
+            @include point(height,30);
+            @include point(text-indent,12); 
+            @include point(border-radius,8); 
+            border: 1px solid #ddd;
+        }
+        .liWarp {
+            border: 1px solid #ddd;
+            @include point(height,70);
+            @include point(border-radius,8);                    
+        }
+        .inputType1 {
+            width: 57%;
+            padding-right: 3%;
+        }
+        .inputType2 {
+            width: 58%;
+            border: 0;
+        }
+        .inputType3 {
+            width: 97%;
+            border: 0;
+        }
+    }
+    //图片验证码
+    .checkImg {
+        width: 35%;
+        @include box(margin,5,5,0,0);
+        &,& img {
+            float: right;
+            @include point(height,60);
+        }
+        & img { width: 100%;}
+    }
+    //短信验证码
+    .checkCode {
+        float: right;
+        width: 36%;
+        @include point(height,72);
+        @include point(line-height,72);
+        text-align: center;
+        overflow: hidden;
+        color: #fff;
+        background: $blue;
+        @include point(border-radius,9);
+       &.grayBg { background: #ccc;}
+    }  
+    //带下划线的标题
+    .lineTit { 
+        @include point(line-height,40);
+        font-weight:600;
+        border-bottom: 1px solid #e8eaec;
+        @include point(text-indent,22);
+        @include point(padding-bottom,10);
+        color: #000;
+    }
+    //普通无边框消息标题
+    .tipTit {
+       text-align: center;
+       @include point(line-height,40);
+       @include point(padding-top,10);
+       color: #000;
+    }
+    //普通内容 
+    .conDetail { 
+        @include box(padding,14,22);
+    }
+}
+.alertBtns {
+    @include point(margin-top,15);
+    border-top: 1px solid #e8e8e8;
+    overflow: hidden;
+    &.two {
+        .btn { width: 49.5%; float: left;}
+    } 
+    .btn {
+        display: block;
+        width: 100%;
+        @include point(font-size,28);
+        @include point(line-height,72);
+        text-align: center;
+        color: $blue;
+        font-family: "microsoft yahei";
+        background: no-repeat;
+        border: 0;
+        cursor: pointer;
+    }
+    .bold {
+        font-weight: 600;
+    }
+    .line {
+        border-left: 1px solid #e8e8e8;
+    }
+}
+//**短信验证弹窗可通用 结束
+   
+//**弹出层消息成功提示--开始
+.alertSuc {
+    @extend .alertCheck;
+}
+.alertSucCon {
+    position: relative;
+    top: 50%;
+    @include point(width,390);
+    @include box(margin,-200,auto,0);
+    @include box(padding,20,0,30,0);
+    @include point(border-radius,10);
+    @include point(font-size,24);
+    text-align: center;
+    background: #fff;
+    overflow: hhidden;
+    &:before {
+        display: block;
+        @include icons;
+        content: $iconSuccess;
+        @include point(font-size,88);
+        @include point(height,90);
+        @include point(line-height,90);
+        @include box(margin,0,auto,15);
+        overflow: hidden;
+        color: $blue;
+    }
+}
+//**弹出层消息成功提示--结束
+
+//【旧】的贷款详情里面用到的弹窗样式
+//.popLayer {
+//  position: fixed;
+//  width: 100%;
+//  height: 100%;
+//  top: 0;
+//  left: 0;
+//  z-index: 99;
+//  .layerCon {
+//      position: fixed;
+//      top: 50%;
+//      right: 50%;
+//      @include point(width,380);
+//      @include point(min-height,280);
+//      @include box(margin,-140,-190,0,0);
+//      @include radius(6);
+//      background: #fff;
+//      .tit {
+//          @include point(line-height,60);
+//          @include point(font-size,26);
+//          @include point(text-indent,15);
+//          border-bottom: 1px solid #d9d9d9;
+//      }
+//      .con {
+//          @include point(font-size,22);
+//          line-height: 1.5em;
+//          @include box(padding,15,15,20);
+//          text-align: justify;
+//      }
+//      .colsed {
+//          float: right;
+//          @include point(height,60);
+//          @include point(line-height,60);
+//          @include point(width,54);
+//          @include point(font-size,18);
+//          cursor: pointer;
+//          &:after {
+//              @include icons;
+//              content: $iconError1;
+//              color: #ccc;
+//          }
+//      }
+//  }
+//  &:after {
+//      display: block;
+//      content: '';
+//      width: 100%;
+//      height: 100%;
+//      background:rgba(0,0,0,0.7);
+//  }
+//}

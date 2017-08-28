@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+//贷款首页banner
+//.indexBanner {
+//  &.swiper-container {
+//      display:block;
+//      background-color: #fff;
+//      @include point(height,342);
+//      position:relative;
+//      overflow:hidden;
+//  }
+//  .swiper-pagination-bullet {
+//      @include point(width,9);
+//      @include point(height,9);
+//      border:1px solid #fff;
+//      background: none;
+//      opacity:1;
+//      @include radius(6);
+//      padding: 0;
+//      overflow: hidden;       
+//  }
+//  .swiper-pagination-bullet-active {
+//      background:#fff;
+//  }
+//  img {
+//      height: 100%;
+//  }
+//}
+
+.indexBanner {
+    width:100%;
+    @include point(height,342);
+    overflow: hidden;
+    position: relative;
+    ul { width: 9999em;}
+    li { float: left;}
+    img { display: block; @include point(height,342); }
+    .prev,.next { display: none;}
+    .tag {
+        position: absolute;
+        @include point(bottom,15);
+        left: 0;
+        width: 100%;
+        text-align: center;
+        span {
+            display: inline-block;
+            width:11px;
+            height: 11px;
+            border-radius:6px;
+            text-indent: -999em;
+            border: 1px solid #fff;
+            overflow: hidden;
+            margin: 0 6px;
+        }
+        .on { background: #fff;}
+    }
+}
+
+//首页几个申请的入口列表
+.indexList {
+    @include point(padding-left,30);
+    background: #fff;
+    li {
+        color: #999;
+        @include point(font-size,24);
+        @include point(height,130);
+        @include box(padding,40,0,0,136);
+        border-bottom: 1px solid #e8e8e8;
+        position: relative;
+        &:last-child { border-bottom: 0;}
+        b {
+            display: block;
+            color: #333;
+            @include point(line-height,48);
+        }
+        //默认微额借款图标
+        &:before {
+            display: block;
+            content: '';
+            @include point(width,110);
+            @include point(height,110);
+            background: url(../img/indexIcon0728.png) no-repeat;
+            background-size: 100%;
+            position: absolute;
+            @include point(top,32);
+            left: 0;
+        }
+
+    }
+    //小额借款图标
+    .icon02:before { background-position: 0% 33.3%;}
+    //草根福利借款
+    .icon03:before { background-position: 0% 66.6%;}
+    //一万元借款图标
+    .icon04:before { background-position: 0% 100%;}
+}

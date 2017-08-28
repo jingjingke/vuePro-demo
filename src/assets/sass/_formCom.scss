@@ -1,0 +1,356 @@
+@charset "UTF-8";
+
+//**表单通用样式**
+.formCom {
+    @include point(padding-left,20);
+    background: #fff;
+    li {
+       color: #333;
+       @include point(font-size,26);
+       @include point(height,76);
+       @include point(line-height,76);
+       border-bottom: 1px solid #e5e5e5;
+       position: relative;
+       overflow: hidden;
+       cursor: pointer;
+       &:last-child { border-bottom: 0;}
+       //默认li标签下面的after伪类存放icon预定义的样式 -- 需要配合下面的icon_xx一起使用才见效
+       &:after {
+           @include icons;
+           color: #ccc;
+           font-style: normal;
+           position: absolute;
+           top:0;
+           right: 0;
+           z-index: 3;
+       }
+       
+       //**清除密码**图标
+       &.icon-clear:after {
+           content: $icoClear;
+           @include point(font-size,20);
+           @include box(padding,0,8);
+           background: #fff;
+       }
+       //**眼睛**的两种状态-[01闭眼]-[02睁眼]
+       &.icon-eye1:after {
+           content:$icoEye1;
+           @include point(font-size,26);
+       }
+       &.icon-eye2:after {
+           content:$icoEye2;
+           @include point(font-size,32);
+       }
+       //**右箭头**[默认就是向右的键头]
+        &.icon-arrow:after {
+            content: $iconArrowR;
+            color: #a0a0a0;
+            @include point(font-size,30);
+            @include point(right,26);
+        }
+        //**日历**图标 -- [稍特殊需要放到labe]
+        &.icon-calendar label:after {
+            @include icons;
+            content: $iconCalendar;
+            @include point(width,90);
+            color: $blue;
+            text-align: center;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            right:0;
+            z-index: 6;
+        }
+    }
+    label { display: block; }
+    input,.input {
+       @include point(font-size,26);
+       @include point(line-height,36);
+       @include point(margin-top,20);
+       width: 72%;
+       background: transparent;
+       position: absolute;
+       right: 0;
+       top: 0;
+       z-index: 2;
+    }
+    p {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding-left: 27.5%;
+    }
+    select {
+       @include point(font-size,26);
+       @include point(height,76);
+       width: 100%;
+       padding-left: 27.5%;
+       background: transparent;
+       position: absolute;
+       top: 0;
+       left: 0;
+       z-index: 5;
+       opacity: 0;
+    }
+    option { color: #666;}
+}
+//图片验证码-按钮
+.code-img {
+   position: absolute;
+   top: 50%;
+   @include point(right,20);
+   @include point(width,160);
+   @include point(height,60);
+   @include point(margin-top,-30);
+   img { width: 100%; height: 100%;}
+   z-index:4;
+}
+//短信验证码-按钮
+.code-sms {
+    @include point(width,160);
+    @include point(height,50);
+    @include point(line-height,50);
+    @include point(font-size,24);
+    text-align: center;
+    color: #fff;
+    background: $blue;
+    @include radius(8);
+    @include point(margin-top,-25);
+    position: absolute;
+    top:50%;
+    @include point(right,20);
+    z-index:4;
+    &.grayBg { background: #ccc;}
+}
+//文字验证码-按钮，只有文字没有背景的
+.code-text {
+    display: block;
+    width: 36%;
+    height: 100%;
+    color: #666;
+    text-align: center;
+    position: absolute;
+    right: 1%;
+    top: 0;
+    z-index: 4;
+    //分隔线
+    &:after {
+        content: '';
+        display: block; width:1px;
+        height: 80%;
+        position: absolute;
+        top: 10%;
+        right: 100%;
+        background: #d0d0d0;
+    }
+}
+   
+//**登录-注册-忘记密码**的表单
+.form-login {
+   @include box(padding,0,20);
+   //登录列表最下面一条底边框显示
+   li:last-child { border-bottom: 1px solid #e5e5e5; }
+   input,.input { @include point(font-size,24);}
+   //图片验证码右边距离
+   .code-img,.code-sms { right: 0; }
+   i { display: block; position: absolute; top: 0; right: 0; z-index: 10; @include point(width,52); text-indent: -99em; height: 100%;}
+}
+//没有前面的标题
+.form-untitled {
+   input { width: 100%;  @include point(text-indent,10);}
+}
+//**征信**登录主要样式
+.form-report {
+    li {
+        @include point(height,90);
+        @include point(line-height,90);
+        input {
+           @include point(font-size,28);
+           width: 85.2%;
+           @include point(margin-top,27);
+       }
+       label:before {
+           @include icons;
+           @include point(font-size,40);
+           color: #999;
+           @include point(padding-left,12);
+           display: inline;
+       }
+       &.user label:before { content:$iconUser;}
+       &.pass label:before { content:$iconPass;}
+       &.safe label:before { content:$iconSafe;}
+       &.uid label:before { content:$iconUserId;}
+    }
+}
+//**征信**短信验证表单
+.form-reportSMS {
+    li {
+        input {
+            @include point(font-size,28);
+            width: 100%;
+        }
+    }
+    .code-sms {
+        @include point(font-size,28);
+        color: #fff;
+        @include point(width,200);
+        @include point(height,76);
+        @include point(line-height,76);
+        border-radius: 0;
+        top: 0;
+        right: 0;
+        margin: 0;
+    }
+}
+//**征信**注册第二步表单
+.form-reportReg {
+    li{
+        @include point(height,90);
+        @include point(line-height,90);
+        input { @include point(margin-top,27);  @include point(font-size,24); }
+    }
+} 
+//**社保**等登录样式
+.form-fund {
+   li {
+       height: auto;
+       @include point(font-size,28);
+       @include point(line-height,90);
+       input {
+           @include point(font-size,28);
+           width: 80.2%;
+           @include point(margin-top,27);
+       }
+       //**tip**不带背景底色的
+       .tips-nobg {
+           @include point(font-size,22);
+           @include point(line-height,28);
+           color: #ccc;
+           @include box(padding,0,32,8,0);
+           padding-left: 20%;
+           position: relative;
+           @include point(top,-18);
+       }
+       //**tip**带背景底色的
+       .tips-bg {
+           position: relative;
+           @include point(top,-8);
+           @include box(padding,5,10);
+           background: #b8b8b8;
+           color: #fff;
+           @include radius(6);
+           width: 94%;
+           @include point(font-size,22);
+           @include point(line-height,32);
+           @include point(margin-bottom,12);
+           //三角--边框
+           &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                display: block;
+                border:rem(10) solid;
+                border-color:transparent transparent #b8b8b8 transparent;
+                position: absolute;
+                @include point(top,-18);
+                @include point(left,24);
+                overflow: hidden;
+           }
+       }
+       span { @include point(padding-left,5); }
+       //公积金样式加长
+       &.li-long {
+           input { width: 72%;}
+           .tips-nobg { padding-left: 28%; }
+       }
+   }
+}
+//**select居右**显示-->实际是P标签仿的需要配合JS
+.form-selectRight {
+    p {
+        float: right;
+        @include point(padding-right,60);
+        position: static;
+        width: auto;
+    }
+}
+//**表单文字间距**加大
+.form-plus {
+   input,.input { width: 67%;}
+   p,select { padding-left: 32.5%;}
+}
+//**表单文字间距**较小
+.form-mini {
+   input,.input { width: 79%;}
+   p,select { padding-left: 20.5%;}
+}
+//常用按钮下**说明**文字
+.formTips {
+    color: #999;
+    @include point(font-size,24);
+    line-height: 1.4em;
+    @include box(padding,15,24,0);
+}
+//常用右侧**更多**
+.formMore {
+    color:$blue;
+    @include point(font-size,24);
+    @include point(line-height,40);
+    text-align: right;
+    @include point(padding-right,20);
+}
+//勾选是否**同意协议**
+.agreeMent {
+    display: block;
+    color: #666;
+    @include point(font-size,22);
+    text-align: center;
+    //默认勾选 
+    &:before {
+        @include icons;
+        content: $iconAgreeYes;
+        display: inline-block;
+        color: $blue;
+        @include point(padding-right,8);
+    }
+    //未勾选图标
+    &.no:before { content: $iconAgreeNo;}
+    input { width: 0; height: 0; display: inline;}
+}
+
+//常用/通用的***表单按钮***[也可用于其它按钮类]
+.subBtn {
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: $blue;
+    text-align: center;
+    @include point(font-size,32);
+    @include point(line-height,72);
+    @include radius(10);
+    cursor: pointer;
+    //btn-vertical
+    &.noRadius { @include radius(0);}
+    &.greenBg { background: #43b800;}
+    &.grayBg { background: #ccc;}
+    &.noBg { background: no-repeat; color: $blue; text-decoration: underline; @include point(font-size,28); @include point(line-height,60); @include point(margin-top,12);}
+    &.blueLight { border: 1px solid $blue; color: $blue; background: #e4effa;}
+}
+//按钮包裹起来【将subBtn包起来】
+.btnWarp {
+    @include box(margin,20,20,0);
+}
+.btn-float {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin: 0;
+    @include point(width,640);
+    @include box(padding,20,0);
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    .subBtn {
+        width: 93.6%;
+        margin: 0 auto;
+    }
+}

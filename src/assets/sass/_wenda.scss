@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+//问答模板-普通正文（标题加内容描述）可通用
+.concepts {
+    @include point(padding-bottom,20);
+    overflow: hidden;
+    dl {
+        width: 93.75%;
+        @include box(margin,20,auto,0);
+        background: #fff;
+        dt {
+            @include point(line-height,36);
+            @include point(padding,20);
+            @include point(font-size,28);
+            border-bottom: 1px solid #e3e3e3;
+            font-weight: bold;
+        }
+        dd {
+            @include point(font-size,24);
+            line-height: 1.5em;
+            @include point(padding,20);
+            p {
+                @include point(padding-top,20);
+                &.pt30 { @include point(padding-top,30); }
+                &.pt10 { @include point(padding-top,10); }
+                .tit { display: block;}
+                b { @include box(padding,0,8); }
+            }
+        }
+    }
+}

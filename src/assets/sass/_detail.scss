@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.detailDL {
+    @include point(font-size,26);
+    line-height:1.55em;
+    text-align: justify;
+    background: #fff;
+    dt {
+       @include point(height,62);
+       border-bottom: 1px solid #D2D2D2;
+       @include point(margin-left,20); 
+       overflow: hidden;
+       h2 {
+           @include point(font-size,28);
+           @include point(height,36); 
+           @include point(line-height,36); 
+           @include point(text-indent,10);
+           @include point(margin-top,18);
+           border-left: 3px solid $blue;
+       }
+    }
+    dd {
+        @include box(padding,0,20,20);
+        p { @include point(padding-top,20); }
+    }
+}
+//***应于于detailDL-dd***
+//段落描述
+.detail-para {
+    @include point(padding-bottom,10);
+    p {
+        text-indent:2em;
+        @include point(padding-bottom,10);
+    }
+}
+//分左右两栏描述
+.detail-cols {
+    @include point(padding-top,20);
+    p {
+        padding-top:0;
+        overflow: hidden;
+        span {
+            float: right;
+            width: 73%;
+        }
+    }
+}

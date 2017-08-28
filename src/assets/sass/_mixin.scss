@@ -1,0 +1,127 @@
+@charset "UTF-8";
+//rem(val)
+@function rem($val){ @return $val/32+rem; }
+//check rem(val)
+@function checkRem($val){
+    @if $val == auto{ @return auto; }
+    @else if $val==0{ @return 0; }
+    @else{ @return rem($val); }
+}
+//check px(val)
+@function checkPx($val){ @if $val == auto{ @return auto; }@else if $val==0{ @return 0; }@else{ @return $val+px; } }
+//需要加后缀
+@mixin webkit($pro,$val){
+    -webkit-#{$pro}:$val;
+    #{$pro}:$val;
+}
+//@mixin radius(val)
+@mixin radius($val){
+    @include webkit(border-radius,checkRem($val));
+}
+//@mixin box(attr,t,r,b,l)
+@mixin box($box,$t,$r:$t,$b:$t,$l:$r){ 
+    //#{$box}: checkPx($t) checkPx($l) checkPx($b) checkPx($l);
+    #{$box}:checkRem($t) checkRem($r) checkRem($b) checkRem($l);
+}
+//@mixin point(attr,val)
+@mixin point($poi,$val){
+    //#{$poi}:checkPx($val);
+    #{$poi}:checkRem($val);
+}
+//@mixin icons
+@mixin icons { display: block; font-family: 'icons';}
+
+//@mixin 超出显示省略号
+@mixin txtEllipsis {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+//colors
+$blue:#3297fd;
+$red:#f33;
+$fff:#fff;
+$fontBack:#060927;
+
+//iconFonts
+$iconBack:'\e689';      //返回
+$icoClear:'\e642';      //清除
+$icoEye1:'\e669';       //眼睛状态1
+$icoEye2:'\e61b';       //眼睛状态2
+$iconLevel:'\e601';     //等级
+$iconName:'\e684';      //级别名
+$iconJiekuan:'\E654';   //借款
+$iconHuankuan:'\E628';  //还款
+$iconJiangli:'\E6AA';   //奖励
+$iconHelp:'\E633';      //帮助
+$iconYijian:'\E63B';    //意见
+$iconAbout:'\E645';     //关于
+$iconArrowR:'\E61D';    //前头右
+$iconFindfile: '\e647'; //查看文件
+$iconSuccess: '\e64a';  //成功
+$iconTicket:'\e620';    //
+$iconUserPic:'\e606';   //用户头像
+$iconError1:'\e627';    //错误信息1
+
+$iconScan:'\e686';      //扫描-识别
+$iconUrgent:'\e635';    //紧急联系人
+$iconPhone:'\e68e';     //手机认证
+$iconWorkInfo:'\e62a';  //工作信息
+$iconIdPic:'\e622';     //身份证图片
+$iconFund:'\e607';      //公积金
+$iconShebao:'\e605';    //社保
+$iconChuxu:'\e664';     //储蓄卡
+$iconZhima:'\e7D7';     //芝麻信息
+$iconBank:'\e619';      //银行卡信息
+$iconCredit:'\e61a';    //央行征信
+$iconInfo:'\e6b0';      //完善信息
+$iconAlipay:'\e702';    //支付宝认证
+$iconOther:'\e66c';     //其它资料
+
+
+$iconCalendar:'\e609';  //日历
+
+$iconAgreeYes:'\e16a';  //选中
+$iconAgreeNo:'\e16b';   //未选中
+
+$iconCamera:'\e629';   //相机-添加照片
+$iconCamera2:'\e60f';       //身份证扫描-相机2
+$iconMobile:'\e60a';    //手机认证
+
+$iconUser:'\e61e';      //征信-用户头像
+$iconUserId:'\e60c';    //征信身份id
+$iconPass:'\e61f';      //征信-密码
+$iconSafe:'\e61c';      //征信-安全-验证
+
+$iconTrue:'\e634';      //正确-对勾
+$iconFalse:'\e63f';     //确误-dialog
+
+$iconCard:'\e6ea';      //征信图标--帐户数
+$iconSign:'\e6eb';      //征信图标--感叹号[1]
+$iconTime:'\e6ec';      //征信图标--时间
+$iconBy90:'\e6ed';      //征信图标--90
+$iconDefend:'\e6ee';    //征信图标--保
+$iconGood:'\e6ef';      //征信图标--对号担保[2]
+
+
+$iconDown:'\e661';      //向下拉图标
+$iconIdInfo:'\e679';    //身份证信息
+$iconLock:'\e65b';      //必选资料-锁
+$iconRecom:'\e60b';     //推荐人
+$iconSmile:'\e63a';     //温馨提示-笑脸
+
+
+$iconStyError:'\e715';    //系统开小差
+$iconPageError:'\e60d';   //页面出错
+$iconNoRecord:'\e60e';    //文档记录
+
+
+$iconIdcard01:'\e69a';  //身份证正面
+$iconIdcard02:'\e69b';  //身份证反面
+$iconBankid:'\e69c';    //银行卡正面
+
+
+$iconCredit:'\e621';    //footer-信用
+$iconPerson:'\e602';    //footer-用户

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+//没有可加载的内容了
+.noMore {
+    color: #999;
+    @include point(font-size,22);
+    line-height: 3em;
+    text-align: center;    
+}
+
+//tab title 基本4不加粗
+.tabTitle {
+    @include point(height,74);
+    @include point(font-size,26);
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    overflow: hidden;
+    li {
+        display: inline-block;
+        @include point(height,70);
+        @include point(line-height,76);
+        padding: 0 20px;
+        cursor: pointer;
+        &.on {
+            border-bottom: 4px solid $blue;
+        }
+    }
+}
+
+//借款审核不通过原因
+.seeReason {
+    @include point(font-size,24);
+    @include point(min-height,250);
+    @include point(padding-left,20);
+    @include point(margin-top,20);
+    background: #fff;
+    dt {
+        @include point(line-height,60);
+        border-bottom: 1px solid #E8EAEC;
+    }
+    dd {
+        @include box(padding,10,20,32,0);
+        line-height: 1.65em;
+    }
+}
+
+//合同表格仿li做的
+.tableUl {
+    width: 100%;
+    @include point(font-size,22);
+    text-align: center;
+    cursor: pointer;
+    th {
+        @include point(line-height,50);
+        font-weight: normal;
+    }
+    td {
+        @include point(line-height,76);
+        background: #fff;
+        border-top: 1px solid #dedede;
+        @include box(padding,0,15);
+    }
+}
+

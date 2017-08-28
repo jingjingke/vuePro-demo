@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+//贷款/借款列表
+.borrowList {
+    @include point(font-size,22);
+//  @include point(padding-bottom,20);
+    li {
+        @include point(margin-top,16);
+        @include point(line-height,40);
+        padding: 2% 3%;
+        background: #fff;
+        cursor:pointer;
+        overflow: hidden;
+        p {
+            float: left;
+            width: 40%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            &.fz26 { @include point(font-size,26); }
+            &.w60P { width: 60%;}
+            span { @include point(padding-left,10);}
+        }
+    }
+}
+
+//贷款详情[旧的先隐藏]
+//.borrowDetail {
+//  .title {
+//      @include point(font-size,24);
+//      @include point(line-height,64);
+//      @include point(text-indent,20);
+//  }
+//  .detail {
+//      background: #fff;
+//      @include box(margin,0,8,20);
+//      @include box(padding,15,12);
+//      @include point(font-size,24);
+//      @include point(line-height,40);
+//      li { overflow: hidden; }
+//      .borB { border-bottom: 1px solid #E9EBED; }
+//      .fgEm { padding-left: 0.5em;}
+//      .fzLit { @include point(font-size,20); }
+//      dl {
+//          @include point(margin-bottom,10);
+//          @include box(padding,8,0,18);
+//          overflow: hidden;
+//          dd {
+//              float: left;
+//              width: 33%;
+//              text-align: center;
+//              line-height:1.8em;
+//              overflow: hidden;
+//              @include box(padding,25,0,15);
+//              @include point(height,86);
+//              border-left: 1px solid #E9EBED;
+//              &:first-child { border-left: 0;}
+//          }
+//          b { display: block; font-weight: normal; color: #f33; @include point(font-size,30); height: 1.7em; overflow: hidden;}
+//      }
+//  }
+//  .listCom {
+//      border-top: 0;
+//      li:first-child { border-top: 1px solid #dfdfdf;}
+//  }
+//  
+//  //确认订单的表格
+//  table {
+//      background-color: #fff;
+//      width: 96%;
+//      margin: 0 auto;
+//      color: #333;
+//      @include point(font-size,18);
+//      @include point(line-height,60);
+//      text-align: center;
+//      th {
+//          @include point(font-size,22);
+//      }
+//      td {
+//          border-top: 1px solid #ededed;
+//      }
+//      .textL { @include point(padding-left,20); }
+//      .textR { @include point(padding-right,20); }
+//  }
+//  
+//  //添加疑问的图标
+//  .helpIcon:after {
+//      @include icons;
+//      display: inline-block;
+//      @include point(font-size,24);
+//      @include point(padding-left,8);
+//      content: $iconHelp;
+//      color: #999;
+//      position: relative;
+//      @include point(top,-2);                
+//  }
+//  
+//  //宽度百分之40，限止
+//  .w40p { width: 40%;}
+//  .w60p { width: 60%;}
+//}
+
+//贷款信息头部
+.borrowInfoTit {
+    color: #666;
+    background: #fff;
+    dl {
+        @include point(line-height,68);
+        @include point(height,90);
+        @include box(padding,0,20);
+        @include point(font-size,24);
+        dt { float: left;}
+        dd { float: right;}
+        span { @include point(padding-left,10);}
+    }
+    ul {
+        @include point(font-size,22);
+        border-bottom: 1px solid #e8eaec;
+        overflow: hidden;
+        li {
+            float: left;
+            width: 33%;
+            @include point(height,78);
+            @include point(margin-bottom,50);
+            text-align: center;
+            border-right: 1px solid #e8e8e8;
+            &:last-child { border-right: 0;}
+        }
+        b {
+            display: block;
+            color: #f33;
+            @include point(font-size,36);
+            font-weight: normal;
+        }
+    }
+}
+//贷款列表-详情入口等
+.borrowInfoList {
+    background: #fff;
+    dt { @include point(font-size,26); @include point(line-height,70); @include point(margin-left,6); @include point(text-indent,16); border-bottom: 1px solid #e8eaec;}
+    dd {
+        position: relative;
+        @include point(font-size,22);
+        @include point(line-height,70);
+        @include point(margin-left,20);
+        border-bottom: 1px solid #e8e8e8;
+        &:last-child { border-bottom: 0;}
+        &.table { @include point(line-height,64); @include box(margin,0,15,0,20); }
+        a { display: block; position: relative; z-index: 3;}
+    }
+
+    //内中表格样式 
+    .table table {
+        width: 100%;
+        text-align: center;
+        th,td { border-bottom: 1px solid #e8e8e8; }
+        td { color: #555;}
+        th { @include point(line-height,64); @include point(font-size,24); font-weight: normal; }
+        .end td { border-bottom: none; }
+    }
+    
+    .txtLeft { text-align: left;}
+}
+
+//进入到详情--更多
+.borrowInfoDetail {
+    background: #fff;
+    @include box(padding,5,22,15);
+    @include point(font-size,28);
+    @include point(line-height,40);
+    p { overflow: hidden; color: #333; @include box(padding,14,0);}
+    span { float: right; width: 12em; color: #000;}
+}
+//问号图标
+.queryIcon {
+    display: inline-block;
+    @include point(font-size,24);
+    @include point(width,24);
+    @include point(height,24);
+    @include point(line-height,24);
+    @include point(border-radius,5);
+    @include point(margin-left,6);
+    vertical-align: middle;
+    color: #fff;
+    background: #ccc;
+    text-align: center;
+    position: relative;
+    @include point(top,-2);
+    cursor: pointer;
+}

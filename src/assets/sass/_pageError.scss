@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+//页面错误综合--无记录--页面错误等
+.pageErrors {
+    @include point(font-size,28);
+    line-height: 1.65em;
+    text-align: center;
+    color: #666;
+    @include box(padding,150,24,0);
+    position:relative;
+    //通用报错，无图标
+    &:before {
+        @include icons;
+        @include point(font-size,150);
+        @include point(line-height,200);
+        color: #c8ccd0;
+        @include point(padding-bottom,20);
+    }
+    
+    //仅文字报错
+    &.error-txt {
+        @include point(font-size,22);
+        color: #999;
+    }
+    
+    //页面报错的图标
+    &.error-page {
+        &:before { content: $iconPageError; }
+    }
+    
+    //无记录(房贷)的图标
+    &.error-record {
+        &:before { content: $iconNoRecord; }
+    }
+    
+    //无优惠券的图标
+    &.error-reward {
+        @include point(font-size,24);
+        font-weight: bold;
+        @include point(padding-top,84);
+        &:before {
+            content: $iconTicket;
+            @include point(font-size,160);
+            font-weight: normal;
+            position: relative;
+            @include point(top,40);
+        }
+    }
+
+    //无记录(还款)的图标 
+    &.error-repay {
+        @include point(font-size,24);
+        &:before {
+            content: $iconFindfile;
+            @include point(font-size,110);
+            padding-bottom:0;
+        }
+        .link {
+            display: block;
+            color: $blue;
+            text-decoration: underline;
+        }
+    }
+    
+    //芝麻报错的图标
+    &.error-zhima {
+        color: #838b93;
+        @include point(padding-bottom,180);
+        &:before {
+            content: $iconStyError;
+            @include point(font-size,144);
+            @include point(line-height,150);
+            @include point(padding-top,37);
+        }
+    }
+    
+    
+    
+    
+}

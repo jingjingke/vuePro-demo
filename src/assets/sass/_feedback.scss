@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+//意见反馈、取消上标等同类样式
+.feedBack {
+    width: 93.6%;
+    margin-left:auto;
+    margin-right: auto;
+    //针对listTop的特定样式
+    .listTop {
+        @include point(font-size,26);
+        @include box(padding,25,0);
+    }
+    //文 本输入字数
+    .feed-num {
+        text-align: right;
+        @include point(font-size,24);
+        color: #999;
+        @include point(padding-top,16);
+    }
+    //***通用***文 本输入框
+    .feed-text {
+        background: #fff;
+        @include box(padding,20,20,15);
+        @include point(font-size,24);
+        color: #999;
+        textarea {
+            color: #999;
+            width: 100%;
+            padding: 0;
+            @include point(font-size,24);
+            line-height: 1.3em;
+            min-height: 11.7em;
+            overflow-y:hidden;
+            resize:none;
+        }
+        .feed-num {
+            @include point(padding-top,12);
+        }
+    }
+    .col5 textarea { color: #555;}
+    //小号的文本输入框
+    .feed-mini textarea { @include point(min-height,210);}
+}
