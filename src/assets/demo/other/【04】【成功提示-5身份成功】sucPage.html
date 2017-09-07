@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>身份认证</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<h1>身份认证</h1>
+		</div>
+	    <div class="successTips tips-id">
+			<h2 class="blue">恭喜您,身份认证成功!</h2>
+	        <p class="tCenter"><span class="myTimeout">4</span>秒后自动跳转到信用页面</p>
+	    </div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			//设置倒计时跳转到URL
+			$(".myTimeout").timeOutURL('http://www.baidu.com');
+		});
+	</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>快捷验证</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>快捷验证</h1>
+		</div>
+		<p class="listTop">您的手机号码：137****7081</span></p>
+		<ul class="formCom form-reportSMS">
+			<li>
+				<label>
+					<input type="text" placeholder="请输入短信验证码">
+				</label>
+				<div class="code-sms getSMScode">发送验证码</div>
+			</li>
+		</ul>
+		<div class="btnWarp">
+			<botton class="subBtn">提交</botton>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			$('.getSMScode').timeReset('发送验证码',60);
+		});
+	</script>
+</html>

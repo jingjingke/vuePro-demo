@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>身份验证</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container bgF">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>身份验证</h1>
+		</div>
+		<div class="reportAnswers">
+			<p class="timeTip">请在<span id="dataTime" data-time="600">10分0秒</span>内提交答案</p>
+			<ul class="ansList" id="ansList">
+	    		<li>
+	    			<p><span>Q1</span>2013年01月至2016年05月期间，您的所有贷款中，最近办理的一笔贷款额度为多少？</p>
+	    			<label class="checked">
+	    				<span>1-10000</span>
+	    				<input type="radio" name="wen01" value="1-10000" checked="checked">
+	    			</label>
+	    			<label>
+	    				<span>10001-20000</span>
+	    				<input type="radio" name="wen01" value="10001-20000">
+	    			</label>
+	    			<label>
+	    				<span>20001-30000</span>
+	    				<input type="radio" name="wen01" value="20001-30000">
+	    			</label>
+	    			<label>
+	    				<span>30001-40000</span>
+	    				<input type="radio" name="wen01" value="30001-40000">
+	    			</label>
+	    			<label>
+	    				<span>以上都不是</span>
+	    				<input type="radio" name="wen01" value="以上都不是">
+	    			</label>
+	    		</li>
+	    		<li>
+	    			<p><span>Q2</span>2013年01月至2016年05月期间，您的所有贷款中，最近办理的一笔贷款额度为多少？</p>
+	    			<label class="checked">
+	    				<span>1-10000</span>
+	    				<input type="radio" name="wen02" value="1-10000" checked="checked">
+	    			</label>
+	    			<label>
+	    				<span>10001-20000</span>
+	    				<input type="radio" name="wen02" value="10001-20000">
+	    			</label>
+	    			<label>
+	    				<span>20001-30000</span>
+	    				<input type="radio" name="wen02" value="20001-30000">
+	    			</label>
+	    			<label>
+	    				<span>以上都不是</span>
+	    				<input type="radio" name="wen02" value="以上都不是">
+	    			</label>
+	    		</li>
+	    	</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script>
+		//点击单选label
+		$('#ansList label').on('click',function(){
+			var $this = $(this),
+				$siblings = $this.siblings('.checked');
+			if(!$this.hasClass('checked')){
+				$siblings.find('input').removeAttr('checked');
+				$siblings.removeClass('checked');
+				$this.addClass('checked');
+				$this.find('input').attr('checked','checked');
+			}
+		});
+		
+		//倒计时JS-需要放在外面
+		var dataTime = document.getElementById('dataTime')
+		function overTime(){
+			var time = dataTime.getAttribute('data-time'); //取时间值
+			var mins = parseInt(time/60)//取时间-分
+			var seconds = time%60;		//取时间-秒
+			dataTime.innerHTML = mins+'分'+seconds+'秒';
+			if(time>0){
+				dataTime.setAttribute('data-time',time-1)
+				setTimeout("overTime()",1000);
+			}
+		}
+		overTime();
+	</script>
+	</body>
+</html>

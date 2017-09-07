@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>芝麻信用分</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container bgF">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>芝麻信用分</h1>
+		</div>
+		<div class="zhimaCanvas">
+			<canvas id="zmCanvas" width="450px" height="450px"></canvas>
+		</div>
+		<div class="btnWarp">
+			<botton class="subBtn">查看最新芝麻分</botton>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/zhimaCanvas.js"></script>
+	<script>
+		//调用canvas完成画布绘画
+		//@param1 ： ID选择器
+		//@param2 ： 分数
+		//@param3 ： 时间
+    	canvasScore('zmCanvas',"756","2016.08.31 20:00:00");
+	</script>
+	</body>
+</html>

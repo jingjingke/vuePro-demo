@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>身份证图片上传</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<!-- 身份证 -->
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>身份证</h1>
+			<span class="save">保存</span>
+		</div>
+		<p class="listTop">二代身份证正反面各一张，本身手持身份证照片一张（需露出手臂确定为本人手持实拍），共三张。</p>
+		<ul class="uploadPic" id="setUploadWarp">
+			<li><img src="https://cgtzimage.b0.upaiyun.com/192002/62/81/71/2016/08/19/B87F3E51-0C07-E405-80E8-DE295F76C2F2.png"></li>
+			<li><img src="https://cgtzimage.b0.upaiyun.com/192002/62/81/71/2016/08/19/5A8CB154-C274-227F-AB0A-57FC710C3B3B.jpeg"></li>
+			<li class="upload-btn">
+				<label>
+					<input type="file" id="selectUpload" />
+				</label>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<!--<script type="text/javascript" src="../../sass/jquery.js" ></script>-->
+	<!--<script>
+		var $file = document.getElementById('selectUpload');
+		var $uploadWarp = document.getElementById('setUploadWarp');
+		var $uploadArr = [];
+		
+		$file.onchange = function(element){
+			if(typeof FileReader != 'undefined' && typeof $file.files != 'undefined'){
+				if(/^image\//.test($file.files[0].type)){
+					var reader = new FileReader();
+					reader.readAsDataURL($file.files[0]);
+					reader.onload = function(e){
+						//$view.innerHTML='<img src="' + this.result +'" />';
+						addUpload(this.result);
+					}
+				}else{
+					$file.value = '';
+					$file.name = '';
+					alert('请选择正确的图片文件！');
+				}
+			}else{
+				alert('你的浏览器不支持该功能');
+			}
+		}
+		
+		//通过创建LI->img元素再整个添加到预览区域
+		function addUpload(src){
+			var $li = document.createElement('li');
+			var $img = document.createElement('img');
+			$img.src = src;
+			$li.appendChild($img);
+			$uploadWarp.insertBefore($li,$uploadWarp.childNodes[0]);
+		}
+		
+	</script>-->
+	</body>
+</html>

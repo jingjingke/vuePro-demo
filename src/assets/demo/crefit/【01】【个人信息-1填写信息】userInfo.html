@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>个人信息</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>个人信息</h1>
+			<span class="save">保存</span>
+		</div>
+		<p class="listTop">请仔细填写正确的个人信息</p>
+		<ul class="formCom">
+			<li>
+				<label>
+					<span>姓名</span>
+					<input type="text" placeholder="请输入真实姓名" >
+				</label>
+			</li>
+			<li>
+				<label>
+					<span>身份证号</span>
+					<input type="number" placeholder="请输入本人身份证号" >
+				</label>
+			</li>
+			<li class="icon-arrow">
+				<span>性别</span>
+				<p></p>
+				<select>
+					<option value="1" selected="selected">男</option>
+					<option value="2">女</option>
+				</select>
+			</li>
+			<li class="icon-arrow">
+				<span>学历</span>
+				<p></p>
+				<select>
+					<option value="1" selected="selected">高中及以下</option>
+					<option value="2">专科</option>
+					<option value="3">本科</option>
+					<option value="4">硕士及以上</option>
+				</select>
+			</li>
+			<li class="icon-arrow">
+				<span>婚姻状况</span>
+				<p></p>
+				<select>
+					<option value="1" selected="selected">未婚</option>
+					<option value="2">已婚</option>
+				</select>
+			</li>
+		</ul>
+		<p class="listTop">联系地址</p>
+		<ul class="formCom">
+			<li class="icon-arrow">
+				<span>省</span>
+				<p></p>
+				<select>
+					<option value="1" selected="selected">北京</option>
+					<option value="2">安徽</option>
+					<option value="2">浙江</option>
+					<option value="2">江苏</option>
+				</select>
+			</li>
+			<li class="icon-arrow">
+				<span>市</span>
+				<p></p>
+				<select>
+					<option value="1">杭州</option>
+					<option value="2">合肥</option>
+					<option value="2">芜湖</option>
+					<option value="2">安庆</option>
+				</select>
+			</li>
+			<li class="icon-arrow">
+				<span>区</span>
+				<p></p>
+				<select>
+					<option value="1">平谷区</option>
+					<option value="2">江宁区</option>
+					<option value="2">鼓楼区</option>
+					<option value="2">江淮区</option>
+				</select>
+			</li>
+			<li>
+				<label>
+					<span>详细地址</span>
+					<input type="text" placeholder="不必填写省市区" >
+				</label>
+			</li>
+			<li class="icon-calendar">
+				<label>
+					<span>入住时间</span>
+					<input type="date" id="myData" >
+				</label>
+			</li>
+		</ul>
+		<div class="agreeMent mt20 bold">
+			我已阅读并同意<span class="blue">《个人信息收集授权协议》</span>
+			<input type="checkbox" value="on">
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹层</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container bgF">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>短信等验证弹层</h1>
+			<span class="save">保存</span>
+		</div>
+	</div>
+    
+	<!-- 弹窗状态1[仅输入图片验证码] -->
+    <div class="alertCheck alertType01">
+    	<div class="alertCheckCon">
+    		<p class="title tCenter">请输入下方图片验证结果。</p>
+    		<ul class="forms">
+    			<li class="liWarp">
+    				<input type="text" placeholder="请输入验证码" class="inputType2" />
+    				<div class="checkImg"><img src="http://file01.16sucai.com/d/file/2013/0612/20130612092046234.jpg"></div>
+    			</li>
+    		</ul>
+    		<div class="alertBtns two">
+    			<span class="btn cancelBtn">取消</span>
+    			<button class="btn bold line">确定</button>
+    		</div>
+    	</div>
+    </div>
+    
+     <!-- 弹窗状态2[仅输入短信验证码] -->
+    <div class="alertCheck alertType02">
+    	<div class="alertCheckCon">
+    		<p class="title">本次操作需要短信验证，请输入您收到的短信验证码。</p>
+    		<ul class="forms">
+    			<li>
+    				<input type="text" placeholder="请输入短信验证码" class="inputType1" />
+    				<div class="checkCode">发送验证码</div>
+    			</li>
+    		</ul>
+    		<div class="alertBtns two">
+    			<span class="btn cancelBtn">取消</span>
+    			<button class="btn bold line">确定</button>
+    		</div>
+    	</div>
+    </div>
+    
+    
+    <!-- 弹窗状态3[发送短信获取验证码] -->
+    <div class="alertCheck alertType03">
+    	<div class="alertCheckCon">
+    		<p class="title">请发送CXXD到10001获取短信验证码。</p>
+    		<ul class="forms">
+    			<li class="liWarp">
+    				<input type="text" placeholder="请输入短信验证码" class="inputType3" />
+    			</li>
+    		</ul>
+    		<div class="alertBtns two">
+    			<span class="btn cancelBtn">取消</span>
+    			<button class="btn bold line">确定</button>
+    		</div>
+    	</div>
+    </div>
+ 
+    <!-- 弹窗状态4[同时输入图片验证码和短信验证码] -->
+    <div class="alertCheck alertType04">
+    	<div class="alertCheckCon">
+    		<p class="title">本次操作需要验证，请输入验证信息。</p>
+    		<ul class="forms">
+    			<li>
+    				<input type="text" placeholder="请输入短信验证码" class="inputType1" />
+    				<div class="checkCode">发送验证码</div>
+    			</li>
+    			<li class="liWarp">
+    				<input type="text" placeholder="请输入验证码" class="inputType2" />
+    				<div class="checkImg"><img src="http://file01.16sucai.com/d/file/2013/0612/20130612092046234.jpg"></div>
+    			</li>
+    		</ul>
+    		<div class="alertBtns two">
+    			<span class="btn cancelBtn">取消</span>
+    			<button class="btn bold line">确定</button>
+    		</div>
+    	</div>
+    </div>
+
+    <!-- 弹窗状态5[认证成功] -->
+    <div class="alertCheck alertType05">
+    	<div class="alertCheckCon">
+    		<p class="conDetail tCenter">恭喜您，手机认证成功。</p>
+    		<div class="alertBtns">
+    			<span class="btn cancelBtn">取消</span>
+    		</div>
+    	</div>
+    </div>
+    
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			$('.checkCode').timeReset('发送验证码',60);
+		});
+	</script>
+	</body>
+</html>

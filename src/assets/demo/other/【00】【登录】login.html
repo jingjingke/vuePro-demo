@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container bgF">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>登录</h1>
+			<span class="save">保存</span>
+		</div>
+		<h2 class="logoIcon">草根金融</h2>
+		<ul class="formCom form-login form-mini">
+			<li class="icon-clear">
+				<label>
+					<span>账号</span>
+					<input type="text" placeholder="请输入手机号" v-model="indexModel.account" >
+				</label>
+			</li>
+			<li class="icon-eye1">
+				<label>
+					<span>密码</span>
+					<input type="password" placeholder="请输入6-12位密码" v-model="indexModel.password">
+				</label>
+			</li>
+			<li>
+				<label>
+					<span>验证码</span>
+					<input type="text" placeholder="请输入图形验证码">
+				</label>
+				<div class="code-img"><img src="https://cgtzfiles.b0.upaiyun.com/style3/bbs/cgtz/images/adv_2.jpg"></div>
+			</li>
+		</ul>
+		<div class="btnWarp">
+			<botton class="subBtn" @click="register">登录</botton>
+		</div>
+		<div class="forgetWarp">
+			<a href="javascript:">马上注册</a>
+			<a href="javascript:" class="fr">忘记密码？</a>
+		</div>
+		<span id="message" style="display: none;">{{ msg }}</span>
+	</div>
+	</body>
+</html>

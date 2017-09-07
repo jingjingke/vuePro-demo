@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>福利借款</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container no-top">
+		<div class="loanBanner">
+			<p><span class="tit">草根福利借款</span><b>草根投资项目担保，费率超低</b></p>
+			<img src="../../img/loanBanner3.jpg" />
+			<span class="back"></span>
+		</div>
+		<div class="loanDetail">
+			<dl>
+	            <dt>产品要点</dt>
+	            <dd>
+	                <p>借款金额<span class="fr">1000元-10000元</span></p>
+	                <p>借款期限<span class="fr">30天</span></p>
+	                <p>借款利率<span class="fr">年化7%</span></p>
+	                <p>期初服务费<span class="fr">0.9%</span></p>
+	                <p>还款方式<span class="fr">到期一次性还本付息</span></p>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>需要资料</dt>
+	            <dd>
+	                <p>1、本人身份证、银行卡<br />2、在草根投资网有投资中的项目</p>
+	            </dd>
+	        </dl>
+	        <dl class="hasIcon">
+	            <dt>产品特点</dt>
+	            <dd>
+	                <p>申请福利借款的用户需要在草根投资账户中拥有还本付息时间超过还款日期30天且金额大于借款额度2倍的投资项目。<br /></p>
+	            </dd>
+	        </dl>
+	        <dl class="hasIcon hot">
+	            <dt>好借好还，再借不难</dt>
+	            <dd>
+	                <p>勿递交虚假材料，否则会被认定为骗贷；<br />请给审核流程多一点耐心，审核时间 1-2 天；<br />勿逾期还款，珍惜信用。<br /></p>
+	            </dd>
+	        </dl>
+	        <div class="btnWarp btn-float">
+				<botton class="subBtn">申请借款</botton>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script>
+		$('.hasIcon').each(function(){
+			var $this = $(this);
+			var $dt = $this.find('dt'),
+				$dd = $this.find('dd');
+			$dt.on('click',function(){
+				$dd.slideToggle();
+				$this.toggleClass('down');
+			});
+		});
+	</script>
+	</body>
+</html>

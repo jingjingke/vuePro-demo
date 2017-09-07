@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>手机认证</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>手机认证</h1>
+		</div>
+		<i class="mobileIcon"></i>
+		<ul class="formCom form-untitled">
+			<li>
+				<label>
+					<input type="text" value="18345173635" readonly>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="text" placeholder="请输入服务密码">
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="number" placeholder="请输入短信验证码">
+				</label>
+				<div class="code-sms getSMScode">点击获取</div>
+			</li>
+		</ul>
+		<div class="btnWarp">
+			<botton class="subBtn">确认</botton>
+		</div>
+		<p class="formTips tCenter"><span class="col6">忘记服务密码，请拨打</span><a href="#" class="blue txtline">手机运营商客服电话</a><span class="col6">进行重置</span></p>
+	</div>
+	
+	<div class="alertCheck">
+    	<div class="alertCheckCon">
+    		<p class="title">本次操作需要验证，请输入验证信息。</p>
+    		<ul class="forms">
+    			<li>
+    				<input type="text" placeholder="请输入短信验证码" class="inputType1">
+    				<div class="checkCode">发送验证码</div>
+    			</li>
+    			<li class="liWarp">
+    				<input type="text" placeholder="请输入验证码" class="inputType2">
+    				<div class="checkImg"><img src="http://file01.16sucai.com/d/file/2013/0612/20130612092046234.jpg"></div>
+    			</li>
+    		</ul>
+    		<div class="alertBtns two">
+    			<span class="btn cancelBtn">取消</span>
+    			<button class="btn bold line">确定</button>
+    		</div>
+    	</div>
+    </div>
+    
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			$('.getSMScode').timeReset('点击获取',60);
+			$('.checkCode').timeReset('发送验证码',60);
+		});
+	</script>
+	<!--<div class="dialog true">重新授权成功</div>-->
+	</body>
+</html>

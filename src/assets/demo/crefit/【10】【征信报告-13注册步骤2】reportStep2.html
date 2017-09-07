@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>注册征信查询账号</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>注册征信查询账号</h1>
+		</div>
+		<div class="reportStepTit">
+			<ul>
+    			<li class="step01 ok"><i>1</i>填写信息</li>
+    			<li class="step02 ok"><i>2</i>补充信息</li>
+    			<li class="step03"><i>3</i>完成注册</li>
+    		</ul>
+		</div>
+		<ul class="formCom form-reportReg mt20">
+			<li>
+				<label><span>登录名</span><input type="text" placeholder="请输入登录名"></label>
+			</li>
+			<li>
+				<label><span>密码</span><input type="password" placeholder="6~12位且必须同时包含数字和字母"></label>
+			</li>
+			<li>
+				<label><span>确认密码</span><input type="password" placeholder="请输入登录名"></label>
+			</li>
+			<li>
+				<label><span>手机号</span><input type="text" placeholder="请输入手机号"></label>
+			</li>
+			<li>
+				<label><span>短信验证码</span><input type="number" placeholder="由6位字母及数字组成"></label>
+				<div class="code-sms getSMScode">发送验证码</div>
+			</li>
+		</ul>
+		<div class="btnWarp">
+			<botton class="subBtn">下一步</botton>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			$('.getSMScode').timeReset('发送验证码',60);
+		});
+	</script>
+	</body>
+</html>

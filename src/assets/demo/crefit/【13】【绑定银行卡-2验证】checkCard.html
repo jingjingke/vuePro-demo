@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>绑定银行卡</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>绑定银行卡</h1>
+		</div>
+		<p class="listTop">添加银行卡的过程中，需要从您的银行卡暂扣2元到我们平台的资金账户。添加银行卡成功之后，暂扣的2元会归还到您的银行卡中</p>
+		<ul class="photoCamera bank-card">
+			<li class="bank noCamera">
+				<img src="https://cgtzimage.b0.upaiyun.com/projectTests//151800/00/00/81/2016/11/07/4EFEC782-8B33-7886-CE53-BBFCA82CE419.jpg">
+			</li>
+		</ul>
+		<ul class="formCom form-plus mt20">
+			<li>
+				<label>
+					<span>姓名</span>
+					<input type="text" value="张三" readonly >
+				</label>
+			</li>
+			<li>
+				<label>
+					<span>身份证</span>
+					<input type="text" value="330305626985412562" readonly>
+				</label>
+			</li>
+			<li>
+				<label>
+					<span>银行预留手机号</span>
+					<input type="text">
+				</label>
+			</li>
+			<li>
+				<label>
+					<span>手机验证码</span>
+					<input type="text">
+				</label>
+				<div class="code-sms getSMScode">点击获取</div>
+			</li>
+		</ul>
+		<div class="btnWarp">
+			<botton class="subBtn">确认</botton>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			$('.getSMScode').timeReset('点击获取',60);
+		});
+	</script>
+	</body>
+</html>

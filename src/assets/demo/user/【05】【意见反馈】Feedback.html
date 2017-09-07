@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>意见反馈</title>
+		<link rel="stylesheet" href="../../css/style2016.css" />
+	</head>
+	<body>
+	<div class="container">
+		<div class="top">
+			<span class="back">返回</span>
+			<h1>意见反馈</h1>
+			<span class="save saveSubmit">提交</span>
+		</div>
+		<div class="errorTips disNone">错误信息消失弹出</div>
+		<div class="feedBack mt20">
+			<div class="feed-text">
+				<textarea maxlength="200" class="limitFeed">感谢您对草根金融的关注，您的意见和建议能帮助我们做的更好！</textarea>
+			</div>
+			<p class="feed-num">还可以输入<span class="limitNum">200</span>个字</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.min.js" ></script>
+	<script type="text/javascript" src="../../lib/script.js" ></script>
+	<script>
+		$(function(){
+			$('.saveSubmit').on('click',function(){
+				$.feedBackSuc();
+			});
+		});
+	</script>
+	</body>
+</html>
