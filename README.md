@@ -74,7 +74,7 @@ vuex指南开始：[http://vuex.vuejs.org/zh-cn/intro.html](http://vuex.vuejs.or
 
 ## 项目截图 ##
 
-![项目首页截图1](http://www.jingjingke.com/uploads/allimg/170213/192541.png)
-![项目首页截图2](http://www.jingjingke.com/uploads/allimg/170213/192542.png)
-![项目首页截图3](http://www.jingjingke.com/uploads/allimg/170213/192543.png)
-![项目首页截图4](http://www.jingjingke.com/uploads/allimg/170213/192544.png)
+![项目首页截图1](src/assets/effect/1.png)
+![项目首页截图2](src/assets/effect/2.png)
+![项目首页截图3](src/assets/effect/3.png)
+![项目首页截图4](src/assets/effect/4.png)
