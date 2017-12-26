@@ -39,6 +39,15 @@ Object.keys(methods).forEach((key)=>{
 	Vue.prototype[key] = methods[key];
 })
 
+//定义一个VUE内全局用到的名称（标题）
+Vue.prototype.appName = '宋江贷';
+
+//添加路由钩子修改每个页面标题
+router.beforeEach((to,form,next)=>{
+	//如果自定义了标题就取标题，否则拿全局标题
+	window.document.title = to.meta.title !== undefined?(to.meta.title + '-' + Vue.prototype.appName):Vue.prototype.appName;
+	next();
+})
 
 var app = new Vue({
 	router,
