@@ -1,6 +1,6 @@
 # vuePro-demo
 
-练习项目基本是用vue2和vue-router2来实现的，满多地方可以填坑的。欢迎交流学习，使用的页面完全来自“草根金融”APP，所以请勿用于商业或公司项目。
+练习项目基本是用vue2和vue-router2来实现的，满多地方可以填坑的。欢迎交流学习，使用的页面完全来自“草根金融/宋江贷”APP，所以请勿用于商业或公司项目。
 
 线上访问地址：[https://jingjingke.github.io/vuePro-demo/dist/](https://jingjingke.github.io/vuePro-demo/dist/)
 
